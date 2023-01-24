@@ -1,10 +1,12 @@
+learning-objectives
+references
 available-course-formats
 introduction
 motivation
 target-audience
 curriculum
 a-new-chapter
-learning-objectives
+learning-objectives-1
 libraries
 topic-of-section
 subtopic
@@ -25,4 +27,4 @@ using-rmarkdown-container-syntax
 using-html-3
 dropdown-summaries
 print-out-session-info
-references
+references-1
