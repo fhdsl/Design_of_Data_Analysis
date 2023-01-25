@@ -15,8 +15,8 @@ docker-test: no
 
 ##### Renderings run upon merge to main branch #####
 # Rendering each platform's content
-render-bookdown: no 
-render-leanpub: no
+render-bookdown: yes
+render-leanpub: yes
 render-coursera: no
 
 # What docker image should be used for rendering?
