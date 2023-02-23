@@ -1,4 +1,4 @@
-book_filename: "Course_Name"
+book_filename: "Design_of_Data_Analysis"
 chapter_name: "Chapter "
 repo: https://github.com/jhudsl/OTTR_Template/
 rmd_files: ["index.Rmd",
