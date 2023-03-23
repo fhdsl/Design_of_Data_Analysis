@@ -212,7 +212,7 @@ and therefore hypothesize that the underlying population mean is $\mu=3$
 without assuming a Normal distribution. This analyst might also know
 that the data collection process can be problematic, leading to very
 large observations on occasion. Therefore, based on experience and
-intution, this analyst has a wider expected outcome interval of
+intuition, this analyst has a wider expected outcome interval of
 $[1, 5]$.
 
 In both examples here, the set of expected outcomes was a statement
@@ -250,7 +250,7 @@ collection of potential outputs from the system which would indicate
 that an anomaly has occurred. Fundamentally, the anomaly space is the
 complement of the set of expected outcomes. Not all areas of the anomaly
 space are equally important and in some applications it may be that
-anomalies occuring in certain subsets of the anomaly space are more
+anomalies occurring in certain subsets of the anomaly space are more
 interesting than anomalies occurring elsewhere. The size of the anomaly
 space of a statistical methods system is determined by the outputs
 produced by the system. Looking back to the simple linear model system
@@ -846,10 +846,10 @@ of modern machine learning algorithms. Iterative methods like boosting
 essentially attempt to automate the evaluation of anomalies and update
 their predictions successively based on pre-determined rules for
 evaluating their fault trees. The original AdaBoost algorithm
-re-weighted missclassified observations more heavily so that successive
+re-weighted misclassified  observations more heavily so that successive
 iterations would produce weak classifiers focused on those
 values [@friedman2002stochastic; @friedman2000additive]. This implies
-that in evaluating the anomaly of a missclassified observation, AdaBoost
+that in evaluating the anomaly of a misclassified  observation, AdaBoost
 always takes the branch of the fault tree that considers the model to be
 somehow incorrect. Many have pointed out that the performance of such
 algorithms is degraded by outliers and have proposed robust
