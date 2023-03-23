@@ -107,7 +107,7 @@ methods system* is a collection of data analytic elements, procedures,
 and tools that are connected together to produce a data analysis
 *output*, such as a plot, summary statistic, parameter estimate, or
 other statistical quantity. By connecting these elements and tools
-togther, we create a complex system through which data are transformed,
+together, we create a complex system through which data are transformed,
 summarized, visualized, and
 modeled [@hick:peng:2019; @Breiman2001cultures]. Each of the components
 in the system will have its own inputs and outputs and tracing the path
