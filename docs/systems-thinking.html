@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Systems Thinking | Design of Data Analysis</title>
+  <meta name="description" content="Chapter 3 Systems Thinking | Design of Data Analysis." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Systems Thinking | Design of Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 3 Systems Thinking | Design of Data Analysis." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Systems Thinking | Design of Data Analysis" />
+  
+  <meta name="twitter:description" content="Chapter 3 Systems Thinking | Design of Data Analysis." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="analytic-design.html"/>
+<link rel="next" href="sec:notation.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="http://jhudatascience.org/"><img src="https://jhudatascience.org/images/dasl.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#available-course-formats"><i class="fa fa-check"></i>Available course formats</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="analytic-iteration.html"><a href="analytic-iteration.html"><i class="fa fa-check"></i><b>1</b> Analytic Iteration</a>
+<ul>
+<li class="chapter" data-level="" data-path="analytic-iteration.html"><a href="analytic-iteration.html#learning-objectives-1"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="1.1" data-path="analytic-iteration.html"><a href="analytic-iteration.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="analytic-iteration.html"><a href="analytic-iteration.html#epicycle-of-analysis"><i class="fa fa-check"></i><b>1.2</b> Epicycle of Analysis</a></li>
+<li class="chapter" data-level="1.3" data-path="analytic-iteration.html"><a href="analytic-iteration.html#setting-expectations"><i class="fa fa-check"></i><b>1.3</b> Setting Expectations</a></li>
+<li class="chapter" data-level="1.4" data-path="analytic-iteration.html"><a href="analytic-iteration.html#collecting-information"><i class="fa fa-check"></i><b>1.4</b> Collecting Information</a></li>
+<li class="chapter" data-level="1.5" data-path="analytic-iteration.html"><a href="analytic-iteration.html#comparing-expectations-to-data"><i class="fa fa-check"></i><b>1.5</b> Comparing Expectations to Data</a></li>
+<li class="chapter" data-level="1.6" data-path="analytic-iteration.html"><a href="analytic-iteration.html#applying-the-epicycle-of-analysis-process"><i class="fa fa-check"></i><b>1.6</b> Applying the Epicycle of Analysis Process</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="analytic-iteration.html"><a href="analytic-iteration.html#example-asthma-prevalence-in-the-u.s."><i class="fa fa-check"></i><b>1.6.1</b> Example: Asthma prevalence in the U.S.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="analytic-design.html"><a href="analytic-design.html"><i class="fa fa-check"></i><b>2</b> Analytic Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="analytic-design.html"><a href="analytic-design.html#learning-objectives-2"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="2.1" data-path="analytic-design.html"><a href="analytic-design.html#types-of-questions"><i class="fa fa-check"></i><b>2.1</b> Types of Questions</a></li>
+<li class="chapter" data-level="2.2" data-path="analytic-design.html"><a href="analytic-design.html#applying-the-epicycle-to-stating-and-refining-your-question"><i class="fa fa-check"></i><b>2.2</b> Applying the Epicycle to Stating and Refining Your Question</a></li>
+<li class="chapter" data-level="2.3" data-path="analytic-design.html"><a href="analytic-design.html#characteristics-of-a-good-question"><i class="fa fa-check"></i><b>2.3</b> Characteristics of a Good Question</a></li>
+<li class="chapter" data-level="2.4" data-path="analytic-design.html"><a href="analytic-design.html#translating-a-question-into-a-data-problem"><i class="fa fa-check"></i><b>2.4</b> Translating a Question into a Data Problem</a></li>
+<li class="chapter" data-level="2.5" data-path="analytic-design.html"><a href="analytic-design.html#case-study"><i class="fa fa-check"></i><b>2.5</b> Case Study</a></li>
+<li class="chapter" data-level="2.6" data-path="analytic-design.html"><a href="analytic-design.html#concluding-thoughts"><i class="fa fa-check"></i><b>2.6</b> Concluding Thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="systems-thinking.html"><a href="systems-thinking.html"><i class="fa fa-check"></i><b>3</b> Systems Thinking</a>
+<ul>
+<li class="chapter" data-level="" data-path="systems-thinking.html"><a href="systems-thinking.html#learning-objectives-3"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="3.1" data-path="systems-thinking.html"><a href="systems-thinking.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="systems-thinking.html"><a href="systems-thinking.html#statistical-methods-systems"><i class="fa fa-check"></i><b>3.2</b> Statistical Methods Systems</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="systems-thinking.html"><a href="systems-thinking.html#example-a-simple-linear-model-system"><i class="fa fa-check"></i><b>3.2.1</b> Example: A Simple Linear Model System</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:expectations"><i class="fa fa-check"></i><b>3.3</b> Set of Expected Outcomes</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:expectedmean"><i class="fa fa-check"></i><b>3.3.1</b> Example: Expected Outcomes for the Sample Mean</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:faultpoints"><i class="fa fa-check"></i><b>3.4</b> Anomaly Space</a></li>
+<li class="chapter" data-level="3.5" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:faulttrees"><i class="fa fa-check"></i><b>3.5</b> Fault Trees</a></li>
+<li class="chapter" data-level="3.6" data-path="systems-thinking.html"><a href="systems-thinking.html#example-fault-tree-for-a-simple-linear-model-system"><i class="fa fa-check"></i><b>3.6</b> Example: Fault Tree for a Simple Linear Model System</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="systems-thinking.html"><a href="systems-thinking.html#minimal-cutsets"><i class="fa fa-check"></i><b>3.6.1</b> Minimal Cutsets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="systems-thinking.html"><a href="systems-thinking.html#exploratory-vs.-confirmatory-methods-systems"><i class="fa fa-check"></i><b>3.7</b> Exploratory vs. Confirmatory Methods Systems</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="systems-thinking.html"><a href="systems-thinking.html#a-scatterplotregression-line-system"><i class="fa fa-check"></i><b>3.7.1</b> A Scatterplot+Regression Line System</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="systems-thinking.html"><a href="systems-thinking.html#comparison-of-systems"><i class="fa fa-check"></i><b>3.8</b> Comparison of Systems</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="systems-thinking.html"><a href="systems-thinking.html#characteristics-of-exploratory-and-confirmatory-systems"><i class="fa fa-check"></i><b>3.8.1</b> Characteristics of Exploratory and Confirmatory Systems</a></li>
+<li class="chapter" data-level="3.8.2" data-path="systems-thinking.html"><a href="systems-thinking.html#from-exploratory-to-confirmatory-fixing-anscombes-quartet"><i class="fa fa-check"></i><b>3.8.2</b> From Exploratory to Confirmatory: “Fixing” Anscombe’s Quartet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:discussion"><i class="fa fa-check"></i><b>3.9</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sec:notation.html"><a href="sec:notation.html"><i class="fa fa-check"></i><b>4</b> Fault Tree Notation</a></li>
+<li class="chapter" data-level="5" data-path="counterfactuals-and-alternatives.html"><a href="counterfactuals-and-alternatives.html"><i class="fa fa-check"></i><b>5</b> Counterfactuals and Alternatives</a>
+<ul>
+<li class="chapter" data-level="" data-path="counterfactuals-and-alternatives.html"><a href="counterfactuals-and-alternatives.html#learning-objectives-4"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="5.1" data-path="counterfactuals-and-alternatives.html"><a href="counterfactuals-and-alternatives.html#narrative-structure"><i class="fa fa-check"></i><b>5.1</b> Narrative Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by:</a> </p>
+<p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Design of Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src= "https://github.com/jhudsl/OTTR_Template/raw/main/assets/dasl_thin_main_image.png">
+</div>
+<div id="systems-thinking" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Systems Thinking</h1>
+<div id="learning-objectives-3" class="section level2 unnumbered">
+<h2>Learning Objectives</h2>
+</div>
+<div id="introduction-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>The presentation of how data analyses are conducted is typically done in
+a forward manner. A question is posed, data are collected, and given the
+question and data, a system of statistical methods is assembled to
+produce evidence. That evidence is then interpreted in the context of the
+original question. While such a description provides a useful model, it
+is incomplete in that it assumes the statistical methods are completely
+determined by the question and the data. In practice, there is an
+equally important “backwards" process that data analysts use to either
+revise their statistical approach or investigate potential problems with
+the data. This process of revision is driven by observing deviations
+between the data and what we expect the data to look like.</p>
+<p>Much previous work dedicated to studying the data analysis process has
+focused on the notion of “statistical thinking," or the cognitive
+processes that occur within the analyst while doing data
+analysis <span class="citation">(<a href="#ref-wildpfannkuch1999" role="doc-biblioref"><strong>wildpfannkuch1999?</strong></a>; <a href="#ref-grol:wick:2014" role="doc-biblioref"><strong>grol:wick:2014?</strong></a>; <a href="#ref-wats:call:2003" role="doc-biblioref"><strong>wats:call:2003?</strong></a>; <a href="#ref-hortonhardin2015" role="doc-biblioref"><strong>hortonhardin2015?</strong></a>)</span>.
+Grolemund and Wickham <span class="citation">(<a href="#ref-grol:wick:2014" role="doc-biblioref"><strong>grol:wick:2014?</strong></a>)</span> refer to these”forwards" and
+“backwards" aspects of data analysis as part of a sensemaking process,
+where analysts attempt to reconcile schema that describe the world with
+data that are measured from the world. Should there be a discrepancy
+between the schema and the data, the analyst can update the schema to
+better match the observed data. These updates ultimately result in
+knowledge being accumulated.</p>
+<p>A key task for data analysts is to interpret the scientific question at
+hand, the available data, context, and resources, and assemble a system
+of statistical methods to analyze the data to produce a evidence. In
+general, statistical theory provides guidance on which methods should be
+applied in different data analytic scenarios. With knowledge of the
+context, scientific question, and the system of methods assembled, the
+data analyst can generate certain expectations for what the results of
+the analysis will be. However, once those methods are applied to the
+data and results are obtained, there is comparatively little formal
+methodology for reconciling differences between the observed results and
+our analytic expectations. In particular, knowledge of the cognitive
+process of statistical thinking does not suggest how to give feedback to
+analysts once the data are observed. While there is much previous work
+on data analysis assessments <span class="citation">(<a href="#ref-Chance1997" role="doc-biblioref"><strong>Chance1997?</strong></a>; <a href="#ref-Garfield2000" role="doc-biblioref"><strong>Garfield2000?</strong></a>; <a href="#ref-Chance2002" role="doc-biblioref"><strong>Chance2002?</strong></a>)</span>
+and project-based
+learning <span class="citation">(<a href="#ref-Gnanadesikan1997" role="doc-biblioref"><strong>Gnanadesikan1997?</strong></a>; <a href="#ref-Smith1998" role="doc-biblioref"><strong>Smith1998?</strong></a>; <a href="#ref-Tishkovskaya2012" role="doc-biblioref"><strong>Tishkovskaya2012?</strong></a>)</span>, the
+literature provides little insight into how to recognize or formally
+assess why a data analysis has produced an unexpected outcome.</p>
+<p>The question of how analysts should reconcile discrepancies between
+their expectations about the world and the observed data is the focus of
+this paper. We propose that a framework for characterizing this process
+emerges by considering the sequence of statistical methods being applied
+to the data as a <em>system</em> that induces a set of expected outcomes. This
+system then generates outputs that may deviate from our expectations and
+these deviations are referred to as <em>anomalies</em>. In a typical data
+analysis there may be many anomalies and the analyst must identify their
+root causes in order to determine the next step in the analysis.</p>
+<p>Characterizing anomalies in data analysis requires that we have a
+thorough understanding of the entire system of statistical methods that
+are being applied to a given dataset. Included in this system are
+traditional statistical tools such as linear regression or hypothesis
+tests, as well as methods for reading data from their raw source,
+pre-processing, feature extraction, post-processing, and any final
+visualization tools that are applied to the model output. Ultimately,
+anomalies can be caused by any component of the system, not just the
+statistical model, and it is the data analyst’s job to understand the
+behavior of the entire system. Yet, there is little in the statistical
+literature that considers the complexity of such systems and how they
+might behave under real-world conditions <span class="citation">(<a href="#ref-national1991future" role="doc-biblioref"><strong>national1991future?</strong></a>)</span>.</p>
+<p>Shifting to a framework that focuses on anomalies in data analysis opens
+up new avenues for thinking about the data analysis process more
+generally. In particular, we can apply approaches from systems
+engineering to formally analyze how data analysts think about a problem.
+Tools like fault trees can provide a way of evaluating how well analysts
+understand the complex systems being applied to their data and can
+suggest improvements to those systems <span class="citation">(<a href="#ref-vesely1981fault" role="doc-biblioref"><strong>vesely1981fault?</strong></a>)</span>. Comparing
+systems of statistical methods based on how they produce anomalies
+provides a new basis for choosing between approaches, in addition to
+traditional metrics such as efficiency or prediction accuracy. Finally,
+diagnosing data analytic anomalies provides a direct and generalizable
+approach to teaching data analysis on a large scale.</p>
+<p>In this paper we introduce the concept of a statistical methods system,
+which is a collection of statistical tools that are applied to a dataset
+for answering a given question. We then discuss the notion of a set of
+expected outcomes and an anomaly space that is determined by the outputs
+of the system and the expected outcomes. Finally, we describe fault
+trees and how they can be used to analyze a statistical methods system
+with respect to different anomalies. We also provide some examples of
+how fault trees can be used to compare different statistical methods
+systems and choose between them.</p>
+</div>
+<div id="statistical-methods-systems" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Statistical Methods Systems</h2>
+<p>To study the manner in which data analyses can produced unexpected
+results, it is useful to first consider data analyses as a system of
+connected components that produce specific outputs. A <em>statistical
+methods system</em> is a collection of data analytic elements, procedures,
+and tools that are connected together to produce a data analysis
+<em>output</em>, such as a plot, summary statistic, parameter estimate, or
+other statistical quantity. By connecting these elements and tools
+together, we create a complex system through which data are transformed,
+summarized, visualized, and
+modeled <span class="citation">(<a href="#ref-hick:peng:2019" role="doc-biblioref"><strong>hick:peng:2019?</strong></a>; <a href="#ref-Breiman2001cultures" role="doc-biblioref"><strong>Breiman2001cultures?</strong></a>)</span>. Each of the components
+in the system will have its own inputs and outputs and tracing the path
+of those intermediate results plays a key role in developing an
+understanding of the system.</p>
+<p>There are also contextual inputs to the data analysis, such as the main
+question or problem being addressed, the data, the choice of programming
+language to use, the audience, and the document or container for the
+analysis, such as Jupyter or R Notebooks. While these inputs are not
+necessarily decided or fundamentally modified by the analyst, the data
+analyst may be expected to provide feedback on some of these inputs. In
+particular, should an analysis produce an unexpected result, the analyst
+might identify one of these contextual inputs as the root cause of the
+problem.</p>
+<p>A statistical methods system can be characterized as a sequence of steps
+or a deterministic algorithm. The algorithm is not necessarily
+uni-directional and may double-back on itself and branch into multiple
+sections. Ultimately, the algorithm produces an output that may be
+interpreted by the analyst or passed on to serve as input to another
+system. In describing the behavior of any system, one must be careful to
+define the resolution of the system (i.e. how detailed we want to
+specify steps) and the boundaries of the system diagram. In particular,
+we should acknowledge what elements are excluded from the diagram, such
+as application-specific context or other assumptions <span class="citation">(<a href="#ref-vesely1981fault" role="doc-biblioref"><strong>vesely1981fault?</strong></a>)</span>.
+The development of a statistical methods system would typically be
+guided by statistical theory, as well as knowledge of the scientific
+question, any relevant context or previous research, available
+resources, and any design requirements for the system output.</p>
+<div id="example-a-simple-linear-model-system" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Example: A Simple Linear Model System</h3>
+<p>Consider a system that fits a simple linear model as part of a data
+analysis. This system reads in some data on a pair of variables <span class="math inline">\(x\)</span> and
+<span class="math inline">\(y\)</span>, fits a simple linear regression via least squares, and outputs the
+intercept and slope estimates. A depiction of this system along with
+some representative R code is shown in
+Figure <a href="systems-thinking.html#modelSLR" reference-type="ref" reference="modelSLR">1</a>.</p>
+<div class="figure">
+<img src="modelSLR.png" id="modelSLR" style="width:4in" alt="" />
+<p class="caption">Simple linear regression statistical methods system with
+pseudo-code.</p>
+</div>
+<p>The diagram indicates that understanding how this system operates
+requires knowledge of (1) how the data are read in; (2) how the model is
+fit to the data; and (3) how the estimated coefficients are extracted
+from the model fit and outputted. Specifically, if we are using R to
+analyze the data, we must have an understanding of the <code>read.csv()</code>,
+<code>lm()</code>, <code>coef()</code>, and <code>print()</code> functions.</p>
+</div>
+</div>
+<div id="sec:expectations" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Set of Expected Outcomes</h2>
+<p>Once a statistical methods system is built, but before it is applied to
+the data, we can develop a set of <em>expected outcomes</em> for the system.
+These expected outcomes represent our current state of scientific
+knowledge and may reflect any gaps or biases in our understanding of the
+data, the problem at hand, or the behavior of the statistical methods
+system. The overarching goal of the data analysis is to produce outputs
+that will in some way improve our understanding of the scientific
+problem. Without any expected outcomes, it is challenging to interpret
+the output of the system or determine how the output informs our
+understanding of the underlying data generation process.</p>
+<p>An important property of the set of expected outcomes is that the
+expected outcomes are always stated in terms of the observed output of
+the system, <em>not</em> any underlying unobserved population parameters. We
+draw a distinction here between <em>hypotheses</em>, which are statements about
+the underlying population, and <em>expected outcomes</em>, which are statements
+about the observed sample data. Another property of the set of expected
+outcomes is that they will generally have sharp boundaries. Therefore,
+once we observe the output from the statistical methods system, we know
+immediately and with complete certainty whether the output is expected
+or unexpected. Boundaries of this nature are important for the analyst
+so that decisions can be made regarding any next steps in the analysis.</p>
+<p>Developing a useful set of expected outcomes is part of the design
+process for a statistical methods system and depends on many factors,
+including our knowledge and assumptions about the underlying data
+generation process, our ability to model that process using statistical
+tools, our knowledge of the theoretical properties of those tools, and
+our understanding of the uncertainty or variability of the observed data
+across multiple samples. Hence, even though the underlying truth might
+be thought of as fixed, it is reasonable to assume that different
+analysts might develop different sets of expected outcomes, reflecting
+differing levels of familiarity with the various factors involved and
+different biases towards existing evidence or data.</p>
+<div id="sec:expectedmean" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Example: Expected Outcomes for the Sample Mean</h3>
+<p>In some contexts, the set of expected outcomes may be derived from
+formal statistical hypotheses. For example, we may design a system to
+compute the sample mean <span class="math inline">\(\bar{x}\)</span> of a dataset <span class="math inline">\(x_1,\dots,x_n\)</span> that we
+model as being sampled independently from a <span class="math inline">\(\mathcal{N}(\mu,1)\)</span>
+distribution. In this case, the output from the system is <span class="math inline">\(\bar{x}\)</span> and
+based on our current knowledge we may hypothesize that <span class="math inline">\(\mu=0\)</span>. Under
+that hypothesis, we might expect <span class="math inline">\(\bar{x}\)</span> to fall between <span class="math inline">\(-2/\sqrt{n}\)</span>
+and <span class="math inline">\(2/\sqrt{n}\)</span>. For <span class="math inline">\(n=10\)</span>, this interval is <span class="math inline">\([-0.63,0.63]\)</span> and any
+observed value of <span class="math inline">\(\bar{x}\)</span> outside that interval would be an anomaly.</p>
+<p>Another analyst might be more familiar with this data generation process
+and therefore hypothesize that the underlying population mean is <span class="math inline">\(\mu=3\)</span>
+without assuming a Normal distribution. This analyst might also know
+that the data collection process can be problematic, leading to very
+large observations on occasion. Therefore, based on experience and
+intuition, this analyst has a wider expected outcome interval of
+<span class="math inline">\([1, 5]\)</span>.</p>
+<p>In both examples here, the set of expected outcomes was a statement
+about <span class="math inline">\(\bar{x}\)</span>, the output of the system applied to the observed data.
+The set of expected outcomes was also a fixed interval with clear
+boundaries, making it straightforward to determine whether the output
+would fall in the interval or not.</p>
+</div>
+</div>
+<div id="sec:faultpoints" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Anomaly Space</h2>
+<p>An anomaly occurs only if there is a clearly defined set of expected
+outcomes for a system, and the observed output from the system does not
+fall into that set. The specification of an anomaly then requires three
+separate elements:</p>
+<ol style="list-style-type: decimal">
+<li><p>A description of <em>what</em> specific system output or collection of
+outputs is observed;</p></li>
+<li><p>A description of <em>how</em> the outputs deviate from their expected
+outcomes; and</p></li>
+<li><p>An indication of <em>when</em> or under what conditions the deviation is
+observed.</p></li>
+</ol>
+<p>Continuing the example from
+Section <a href="systems-thinking.html#sec:expectedmean" reference-type="ref" reference="sec:expectedmean">2.2.1</a> above, an anomaly for the sample mean
+could be “<span class="math inline">\(\bar{x}\)</span> is outside the expected interval of <span class="math inline">\([-0.63, 0.63]\)</span>
+when a sample of size <span class="math inline">\(n=10\)</span> is inputted to the system”. The observed
+output is <span class="math inline">\(\bar{x}\)</span>, the deviation is “outside the interval
+<span class="math inline">\([-0.63, 0.63]\)</span>", and the event occurs when <span class="math inline">\(n=10\)</span>.</p>
+<p>The <em>anomaly space</em> of a statistical methods system consists of the
+collection of potential outputs from the system which would indicate
+that an anomaly has occurred. Fundamentally, the anomaly space is the
+complement of the set of expected outcomes. Not all areas of the anomaly
+space are equally important and in some applications it may be that
+anomalies occurring in certain subsets of the anomaly space are more
+interesting than anomalies occurring elsewhere. The size of the anomaly
+space of a statistical methods system is determined by the outputs
+produced by the system. Looking back to the simple linear model system
+in Figure <a href="systems-thinking.html#modelSLR" reference-type="ref" reference="modelSLR">1</a>,
+there are only two outputs (<span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>) that
+define the anomaly space. Therefore, any anomalies for that system must
+be determined by those two values.</p>
+<p>As the number of system outputs grows, the size of the anomaly space may
+grow accordingly. For example, we can increase the size of the anomaly
+space for the simple linear model system by also returning the standard
+errors of the coefficients. With each additional output, we increase the
+number of ways in which anomalies can occur. Different systems with
+different sets of outputs will induce anomaly spaces of differing sizes
+and the nature of the anomaly space associated with a system may serve
+as a factor in choosing between systems. Also, because the anomaly space
+depends on the specification of the set of expected outcomes, different
+analysts with different expectations could induce different anomaly
+spaces for the same statistical methods system.</p>
+<p>Once a statistical methods system has been applied to the data and an
+anomaly has been observed, the “forward" aspect of data analysis is
+complete and the analyst must begin the”backward" aspect to determine
+what if any changes should be made to the analysis. Such changes could
+involve modifying the statistical methods system itself or could require
+changes to our set of expected outcomes based on this new information.
+However, before any decision can be made in response to observing an
+anomaly, a data analyst must enumerate the possible <em>root causes</em> of the
+anomaly and determine which root causes should be investigated.</p>
+</div>
+<div id="sec:faulttrees" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Fault Trees</h2>
+<p>The key formal tool that we introduce here is the <em>fault tree</em>, which
+can be used to analyze the design and operation of a statistical methods
+system and to identify root causes for any system anomalies. A fault
+tree is a tool commonly used in systems engineering for conducting a
+structured risk assessment and has a long history in aviation,
+aerospace, and nuclear power
+applications <span class="citation">(<a href="#ref-vesely1981fault" role="doc-biblioref"><strong>vesely1981fault?</strong></a>; <a href="#ref-michael2002fault" role="doc-biblioref"><strong>michael2002fault?</strong></a>)</span>. In general, fault
+trees can be used to discover the root cause of an anomaly after it
+occurs. However, an important use case for fault trees is to develop a
+comprehensive understanding of a system before an anomaly occurs. As
+such, it is a valuable design tool for complex systems.</p>
+<p>A fault tree is a graphical tool that describes the possible
+combinations of causes and effects that lead to an anomaly. At the top
+of the tree is a description of an anomaly. The subsequent branches of
+the tree below the top event indicate possible causes of the event
+immediately above it in the tree. The tree can then be built recursively
+until we reach a root cause that cannot be further investigated. Each
+level of the tree is connected together using logic gates such as AND
+and OR gates. The leaf nodes of the tree indicate the root causes that
+may lead to an anomaly. Comprehensive details on constructing fault
+trees can be found in Vesely, et al. <span class="citation">(<a href="#ref-vesely1981fault" role="doc-biblioref"><strong>vesely1981fault?</strong></a>)</span> and
+Ericson <span class="citation">(<a href="#ref-ericson2011fault" role="doc-biblioref"><strong>ericson2011fault?</strong></a>)</span>.</p>
+<p>In principle, a fault tree can be constructed for every potential system
+anomaly that could be observed. However, if the goal is to develop an
+understanding of the strengths and weaknesses of a statistical methods
+system’s design, then it may be desirable to identify a few important
+anomalies whose fault trees provide substantial visibility into the
+operating characteristics of the system <span class="citation">(<a href="#ref-vesely1981fault" role="doc-biblioref"><strong>vesely1981fault?</strong></a>)</span>.</p>
+</div>
+<div id="example-fault-tree-for-a-simple-linear-model-system" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Example: Fault Tree for a Simple Linear Model System</h2>
+<p>We can build a fault tree for the simple linear model system shown in
+Figure <a href="systems-thinking.html#modelSLR" reference-type="ref" reference="modelSLR">1</a>. Under
+normal operation, we might expect that <span class="math inline">\(\hat{\beta}_1\approx 1\)</span>. With
+typical random variation in the data we might expect <span class="math inline">\(\hat{\beta}_1\)</span> to
+range from 0 to about 3. Therefore, it would be unexpected to observe
+<span class="math inline">\(\hat{\beta}_1&lt;0\)</span> or <span class="math inline">\(\hat{\beta}_1&gt;3\)</span>. For this example, we will define
+the anomaly of interest as “<span class="math inline">\(\hat{\beta}_1 &lt; 0\)</span> when outputted from the
+model fit". Note that although the set of expected outcomes is the
+interval <span class="math inline">\([0, 3]\)</span>, we define the anomaly as <span class="math inline">\(\hat{\beta}_1&lt;0\)</span> and ignore
+the part of the anomaly space defined by <span class="math inline">\(\hat{\beta}_1&gt;3\)</span>. Similarly,
+possible anomalies concerning the intercept <span class="math inline">\(\hat{\beta}_0\)</span> will not be
+developed here.</p>
+<p>Starting with the system description in
+Figure <a href="systems-thinking.html#modelSLR" reference-type="ref" reference="modelSLR">1</a>, we can
+see that should we observe <span class="math inline">\(\hat{\beta}_1&lt;0\)</span> there are two possibilities
+we might consider: (1) the structural relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>
+has changed to no longer reflect the simple linear model; or (2) the
+underlying structural relationship remains, but the input data to the
+linear model has been contaminated, perhaps with outliers. Developing
+the “contaminated data" event a bit further, we can propose that either
+there are outliers present in the raw data or outliers were somehow
+introduced into the data before inputting to the regression model.</p>
+<p>The completed fault tree is shown in
+Figure <a href="systems-thinking.html#ftreeSLR" reference-type="ref" reference="ftreeSLR">2</a> and was
+built using the <code>FaultTree</code> package in R <span class="citation">(<a href="#ref-faulttreeRpackage2020" role="doc-biblioref"><strong>faulttreeRpackage2020?</strong></a>)</span>. The
+leaf nodes are labeled with circles to indicate the root cause events.</p>
+<div class="figure">
+<img src="ftreeSLR.png" id="ftreeSLR" style="width:6in" alt="" />
+<p class="caption">Fault tree for unexpected event of “Estimated coefficients outside of
+expected range when model fitted to the input
+data."</p>
+</div>
+<p>For a description of the notation and symbols used in the fault tree,
+see Appendix <a href="sec:notation.html#sec:notation" reference-type="ref" reference="sec:notation">7</a>. The fault tree indicates that outliers can be
+a root cause of the anomaly (events <span class="math inline">\(E_{11}\)</span> or <span class="math inline">\(E_{12}\)</span>). However,
+outliers do not <em>always</em> cause an unexpected change in <span class="math inline">\(\hat{\beta}_1\)</span>.
+The AND gate at <span class="math inline">\(G_5\)</span> indicates that the outliers also have to be
+arranged in such a manner that they cause <span class="math inline">\(\hat{\beta}_1\)</span> to be <span class="math inline">\(&lt; 0\)</span>,
+perhaps because of some selection process in the outlier
+generation (<span class="math inline">\(E_{13}\)</span>).</p>
+<p>The other root cause is that there is a change in the underlying
+structural relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> or that we perhaps
+misunderstood the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the first place.
+For example, it could be that the data are naturally more variable than
+we thought they were, and so our set of expected outcomes for
+<span class="math inline">\(\hat{\beta}_1\)</span> should be larger. In any case, the AND gate at <span class="math inline">\(G_6\)</span>
+indicates that any structural change also needs to be large enough
+(relative to the noise in the data) so that we are able to observe it in
+the data.</p>
+<div id="minimal-cutsets" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Minimal Cutsets</h3>
+<p>A useful summary statistic from any properly constructed fault tree is
+the list of minimal cutsets, which is a summary of the minimal number of
+events that need to happen in order for the anomaly to occur. There may
+be many cutsets and there may be different cutsets with 1, 2, or more
+events in them. The fault tree in
+Figure <a href="systems-thinking.html#ftreeSLR" reference-type="ref" reference="ftreeSLR">2</a> has
+three cutsets of size 2: <span class="math inline">\(\{E_{11}, E_{13}\}\)</span>, <span class="math inline">\(\{E_{12}, E_{13}\}\)</span>, and
+<span class="math inline">\(\{E_7, E_8\}\)</span>. An example of one cutset is (1) There are outliers in
+the raw data (event <span class="math inline">\(E_{11}\)</span>), AND (2) a selection process arranges the
+outliers such that they produce <span class="math inline">\(\hat{\beta}_1&lt;0\)</span> (event <span class="math inline">\(E_{13}\)</span>). If
+this pair of events occurs, the system will experience the anomaly
+described at the top of the tree. Given the specification of a fault
+tree, minimal cutsets can generally be computed automatically using
+standard rules of boolean algebra <span class="citation">(<a href="#ref-michael2002fault" role="doc-biblioref"><strong>michael2002fault?</strong></a>)</span>.</p>
+</div>
+</div>
+<div id="exploratory-vs.-confirmatory-methods-systems" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Exploratory vs. Confirmatory Methods Systems</h2>
+<p>The anomaly space of the simple linear model system in
+Figure <a href="systems-thinking.html#modelSLR" reference-type="ref" reference="modelSLR">1</a> is
+completely determined by the values of <span class="math inline">\(\hat{\beta}_0\)</span> or
+<span class="math inline">\(\hat{\beta}_1\)</span>. The specification of the anomaly space here therefore
+rules out other possible anomalies that may be of interest when applying
+a linear model. For example, an anomaly such as “One or more regression
+model residuals are larger than expected when outputted from the model
+fit" is not contained within the anomaly space of the system, because
+the regression model residuals are not part of the system output. If
+there are unusually large residuals from the model fit, they can only
+cause an anomaly in this system inasmuch as they affect the values of
+<span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>. Whether this feature is a strength
+or a weakness of the system depends on the application context, but it
+suggests that the structure of the anomaly space should be considered
+when designing a statistical methods system.</p>
+<div id="a-scatterplotregression-line-system" class="section level3" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> A Scatterplot+Regression Line System</h3>
+<p>Suppose that instead of the simple linear model system we used a
+scatterplot as our statistical method system, with the plot of the data
+and the overlaid simple linear regression line being the output of
+interest. This system is shown in
+Figure <a href="systems-thinking.html#modelPlot" reference-type="ref" reference="modelPlot">3</a>.</p>
+<div class="figure">
+<img src="modelPlot.png" id="modelPlot" style="width:5in" alt="" />
+<p class="caption">Scatterplot with overlaid regression line statistical methods system
+with pseudo-code.</p>
+</div>
+<p>The scatterplot system does not output the estimated regression
+coefficients (they are intermediate outputs) but rather passes them into
+a plotting routine that can overlay the fitted regression line.</p>
+<p>The scatterplot system in Figure <a href="systems-thinking.html#modelPlot" reference-type="ref" reference="modelPlot">3</a> includes a plot of the data along with the
+regression line, which is considerably more revealing than the
+regression coefficients alone. The anomaly space of this system contains
+at least the following events:</p>
+<ol style="list-style-type: decimal">
+<li><p>Nonlinear structure visible in residuals;</p></li>
+<li><p>Model residuals out of expected range (outliers in the <span class="math inline">\(y\)</span>
+direction);</p></li>
+<li><p>Model leverages out of expected range (outliers in the <span class="math inline">\(x\)</span>
+direction);</p></li>
+<li><p>Intercept or slope of regression line out of expected
+range<span id="failureSLR" label="failureSLR"><span class="math display">\[failureSLR\]</span></span>.</p></li>
+</ol>
+<p>Note that the anomaly space of the simple linear model system is
+included within the anomaly space of the scatterplot+regression line
+system (i.e. case <a href="systems-thinking.html#failureSLR" reference-type="ref" reference="failureSLR"><span class="math display">\[failureSLR\]</span></a>). Because of the graphical nature of the output,
+all of the anomaly assessments in the scatterplot+regression line system
+must be made by eye.</p>
+<p>One anomaly we can consider is “A model residual is out of the expected
+range when viewed on the scatterplot".
+Figure <a href="systems-thinking.html#ftreePlot" reference-type="ref" reference="ftreePlot">4</a> shows
+the fault tree for the scatterplot+regression line system and this
+anomaly. Here, we only consider the case where the residual is positive.</p>
+<div class="figure">
+<img src="ftreePlot.png" id="ftreePlot" style="width:6.25in" alt="" />
+<p class="caption">Fault tree for unexpected event of “Model residuals out of expected
+range."</p>
+</div>
+<p>Given that a large positive residual implies that <span class="math inline">\(y_i &gt;&gt; \hat{y}_i\)</span>,
+the source of the problem lies with either the data <span class="math inline">\(y_i\)</span> or the model
+output <span class="math inline">\(\hat{y}_i\)</span>. Possible problems with the data <span class="math inline">\(y_i\)</span> include errors
+in the raw data (such as a corrupted file), introduction of error upon
+reading the data, or some type of measurement problem in the process
+generating the raw data. Regarding problems with the modeling, it is
+possible that the model does not capture an important nonlinearity, is
+missing a key covariate (and the observation is an outlier in that
+covariate), or that the error structure is incorrectly specified
+(possibly non-normal or heteroscedastic).</p>
+</div>
+</div>
+<div id="comparison-of-systems" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Comparison of Systems</h2>
+<p>A key difference between the simple linear model system in
+Figure <a href="systems-thinking.html#modelSLR" reference-type="ref" reference="modelSLR">1</a> and the
+scatterplot+regression line system in
+Figure <a href="systems-thinking.html#modelPlot" reference-type="ref" reference="modelPlot">3</a> is
+the potential size of their respective anomaly spaces. The anomaly space
+of the simple linear model system is determined by the estimated
+coefficients from the model while the anomaly space of the scatterplot
+system is determined by the fitted linear regression line and all of the
+data points.</p>
+<p>The difference between how these two systems can produce anomalies is
+notably demonstrated in Anscombe’s famous Quartet, which consists of
+four sets of data on hypothetical variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. In each of the
+four datasets, key summary statistics such as the number of
+observations, Pearson correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, slope of the
+simple linear regression line, and regression sums of squares are
+identical <span class="citation">(<a href="#ref-anscombe1973graphs" role="doc-biblioref"><strong>anscombe1973graphs?</strong></a>)</span>. If one were to rely on these numerical
+summaries alone to characterize the data, one would conclude that all of
+the datasets were the same.</p>
+<p>We reproduce Anscombe’s original scatterplots below in
+Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>. Upon seeing the four datasets, it is clear
+that the datasets are not identical and present some features that were
+perhaps unexpected.</p>
+<div class="figure">
+<embed src="anscombeplot.pdf" id="anscombeplot" style="width:5in" />
+<p class="caption">Simple linear regression statistical methods
+system.</p>
+</div>
+<p>Each of the scatterplots in
+Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>B–D presents an anomaly if one’s set of
+expected outcomes specifies that the observed data <span class="math inline">\(y\)</span> follow the form
+<span class="math inline">\(y=\beta_0+\beta_1x+\varepsilon\)</span> under the usual linear model
+assumptions:</p>
+<ol style="list-style-type: decimal">
+<li><p>Figure Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>A does not present an anomaly; it is what
+one might expect to observe from a simple linear model;</p></li>
+<li><p>Figure Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>B is anomalous because the data exhibit a
+clear nonlinear (possibly quadratic) pattern in addition to a linear
+trend;</p></li>
+<li><p>Figure Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>C is anomalous because the data have an
+outlier in the <span class="math inline">\(y\)</span>-direction;</p></li>
+<li><p>Figure Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>D is anomalous because the data have an
+outlier in the <span class="math inline">\(x\)</span>-direction.</p></li>
+</ol>
+<p>In each of Figures <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>B–<a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>D above, the system output
+(scatterplot+regression line) provides a useful indicator that the
+simple linear model is inadequate for describing the dataset being
+plotted.</p>
+<p>Anscombe used this quartet of examples as part of an argument for
+graphing the data versus only computing numerical summaries. The
+rationale for his argument is not clearly articulated and is along the
+lines of “We know it when we see it”. But it is possible to formally
+compare the two systems he proposes (numerical summaries vs.
+scatterplots) based on an analysis of their anomaly spaces and their
+fault trees.</p>
+<p>The value of the scatterplot+regression line approach in this situation
+is that its large anomaly space offers many opportunities to interrogate
+the data analytic process by observing anomalies and question our
+understanding of the data generation process. When we compare the fault
+trees in Figure <a href="systems-thinking.html#ftreeSLR" reference-type="ref" reference="ftreeSLR">2</a> and Figure <a href="systems-thinking.html#ftreePlot" reference-type="ref" reference="ftreePlot">4</a> we can see that for the simple linear model,
+outliers (i.e. large model residuals) represent a root cause of an
+anomaly related to <span class="math inline">\(\hat{\beta}_1\)</span>. However, for the
+scatterplot+regression line system, large model residuals are a
+top-level anomaly in and of themselves. Because this top-level anomaly
+for the scatterplot+regression line system is an “upstream" root cause
+for the simple linear model, the scatterplot+regression line can trigger
+an anomaly earlier in the data analytic process than the simple linear
+model system can.</p>
+<p>The difference in the structure of the fault trees in
+Figures <a href="systems-thinking.html#ftreeSLR" reference-type="ref" reference="ftreeSLR">2</a>
+and <a href="systems-thinking.html#ftreePlot" reference-type="ref" reference="ftreePlot">4</a> does not
+indicate that one approach is good and the other is bad, but it does
+provide a formal characterization of their strengths and weaknesses.
+Determining which fault tree (and therefore, which system) is more
+useful depends in part on our confidence in our understanding of the
+underlying process that generates the data.</p>
+<div id="characteristics-of-exploratory-and-confirmatory-systems" class="section level3" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Characteristics of Exploratory and Confirmatory Systems</h3>
+<p>The simple linear model system that focuses solely on the regression
+coefficients is only appropriate in situations where one has decided
+that the coefficients are the sole quantity of interest and that unusual
+patterns in the data are tolerable to some degree. This system might be
+part of a “confirmatory analysis" where problems with the data, such as
+outliers, are free to occur and are only relevant if they cause an
+unexpected problem with the estimated coefficients. However, if one is
+in the phase of data analysis where the data generation process is still
+being investigated (i.e. ”exploratory analysis") then it would make
+more sense to choose the scatterplot+regression line system. This system
+has a large anomaly space and a variety of ways in which anomalies can
+occur. Therefore, unexpected problems with the data or the modeling can
+easily be surfaced and possibly rectified by the data analyst.</p>
+<p>Characterizing statistical methods systems via their anomaly spaces and
+fault trees allows us to develop the following generalization with
+respect to exploratory and confirmatory methods systems:</p>
+<ol style="list-style-type: decimal">
+<li><p>An <em>exploratory statistical methods system</em> has a large anomaly
+space and the fault trees associated with the anomalies have minimal
+cutsets that are small in size or prioritize single event root
+causes;</p></li>
+<li><p>A <em>confirmatory statistical methods system</em> has a small anomaly
+space and the fault trees associated with each of the anomalies have
+minimal cutsets that are large in size and few (if any) single event
+root causes.</p></li>
+</ol>
+<p>Exploratory systems tend to prioritize visualization or related
+procedures where the number of outputs is on the order of the sample
+size itself <span class="citation">(<a href="#ref-tukey1977exploratory" role="doc-biblioref"><strong>tukey1977exploratory?</strong></a>; <a href="#ref-cham:clev:1983" role="doc-biblioref"><strong>cham:clev:1983?</strong></a>)</span>. Such approaches
+provide ample opportunities to detect deviations from expected outcomes
+in situations where we are learning about the data and the processes
+underlying them.</p>
+<p>Confirmatory systems tend to prioritize robustness and nonparametric
+flexibility because their outputs are small in number and must be
+reliable <span class="citation">(<a href="#ref-hube:1977" role="doc-biblioref"><strong>hube:1977?</strong></a>; <a href="#ref-tsiatis2007semiparametric" role="doc-biblioref"><strong>tsiatis2007semiparametric?</strong></a>)</span>. Once we have
+determined which outputs are of interest, we typically want to refine
+the system to focus on those outputs; increasing the size of the anomaly
+space may serve as more of a distraction in this type of analysis.
+Critical to confirmatory statistical methods systems is their ability to
+protect against failures that are fundamentally unobservable within the
+context of the data analysis.</p>
+<p>A typical pattern that might be followed in going from an exploratory to
+confirmatory system would be to start with an exploratory system applied
+to a preliminary dataset. Using a highly iterative process, the
+exploratory system could reveal a number of anomalies and allow the
+analyst to reconsider the set of expected outcomes and the design of the
+statistical methods system. Once the analyst has developed a deeper
+understanding of the data generation process, a separate (perhaps
+larger) effort could be made to collect new data. At this point, a
+confirmatory statistical methods system could be applied to analyze
+those new data, incorporating the lessons learned from the exploratory
+analysis.</p>
+</div>
+<div id="from-exploratory-to-confirmatory-fixing-anscombes-quartet" class="section level3" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> From Exploratory to Confirmatory: “Fixing” Anscombe’s Quartet</h3>
+<p>Upon seeing the three types of anomalies indicated by the scatterplots
+in Anscombe’s Quartet (Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>B–<a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>D), we could attempt to revise the simple
+linear model system in Figure <a href="systems-thinking.html#modelSLR" reference-type="ref" reference="modelSLR">1</a> so that the output would be more reliable and
+trustworthy when applied to future datasets of this nature. The
+exploratory analysis based on the scatterplot provided useful
+information regarding the design of our statistical methods system that
+we can now incorporate into a revision.</p>
+<p>One way we could modify our original system is to design a system that
+only produces outputs when the data appear as in
+Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>A. That way, we could be reasonably confident
+that there isn’t significant nonlinear structure or large outliers.
+Based on our “experience" with
+Figure <a href="systems-thinking.html#anscombeplot" reference-type="ref" reference="anscombeplot">5</a>, we can revise the original simple linear
+model system to handle these anomalies as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Read in data</p></li>
+<li><p>Fit model <span class="math inline">\(y=\beta_0+\beta_1x+\varepsilon\)</span> to the data.</p></li>
+<li><p>Fit the alternative model
+<span class="math inline">\(y =\alpha_0+\alpha_1x + \alpha_2x^2+\varepsilon\)</span> and output
+<span class="math inline">\(\hat{\alpha}_2\)</span>. Our expectation is that <span class="math inline">\(\alpha_1 &gt; 0\)</span> and
+<span class="math inline">\(\alpha_2=0\)</span> (i.e. a simple linear model). If
+<span class="math inline">\(\frac{|\hat{\alpha}_2|}{\sqrt{\mbox{Var}(\hat{\alpha}_2)}} \leq 2\)</span>,
+then the algorithm continues. Otherwise, stop the
+algorithm.<span id="step:quadratic" label="step:quadratic"><span class="math display">\[step:quadratic\]</span></span></p></li>
+<li><p>To handle outliers in the <span class="math inline">\(x\)</span>-direction, we can compute the leverage
+<span class="math inline">\(h_i\)</span> for each <span class="math inline">\(x_i\)</span> value from the linear model. If
+<span class="math inline">\(h_i \leq 4\bar{h}\)</span> for all <span class="math inline">\(i\)</span> (where <span class="math inline">\(\bar{h}\)</span> is the mean of
+<span class="math inline">\(h_i\)</span>), then continue.<span id="step:xoutlier" label="step:xoutlier"><span class="math display">\[step:xoutlier\]</span></span></p></li>
+<li><p>To detect outliers in the <span class="math inline">\(y\)</span>-direction we can compute the
+studentized residuals
+<span class="math inline">\(e_i = (y_i-\hat{y}_i)/(\hat{\sigma}\sqrt{1-h_i})\)</span> from the linear
+model. If <span class="math inline">\(|e_i| \leq 3\)</span> for all <span class="math inline">\(i\)</span>, then
+continue.<span id="step:youtlier" label="step:youtlier"><span class="math display">\[step:youtlier\]</span></span></p></li>
+<li><p>Output <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>.</p></li>
+</ol>
+<p>This revised algorithm (shown in
+Figure <a href="systems-thinking.html#modelSLRrev" reference-type="ref" reference="modelSLRrev">6</a>)
+introduces three checking steps, each of which has the possibility of
+stopping the algorithm before completion. The checking steps act as
+switches—if they evaluate to true, then a a switch is connected
+allowing the analysis to proceed to the next step. In order for the
+output to be generated, all three switches in
+Figure <a href="systems-thinking.html#modelSLRrev" reference-type="ref" reference="modelSLRrev">6</a>
+must be closed. Of course, we have made explicit choices here in
+Steps <a href="systems-thinking.html#step:quadratic" reference-type="ref" reference="step:quadratic"><span class="math display">\[step:quadratic\]</span></a>–<a href="systems-thinking.html#step:youtlier" reference-type="ref" reference="step:youtlier"><span class="math display">\[step:youtlier\]</span></a> that might have been different depending on
+the circumstances of the analysis.</p>
+<div class="figure">
+<img src="modelSLRrev.png" id="modelSLRrev" style="width:6in" alt="" />
+<p class="caption">Revised simple linear regression
+system.</p>
+</div>
+<p>One might recognize the three additional checks presented in
+Steps <a href="systems-thinking.html#step:quadratic" reference-type="ref" reference="step:quadratic"><span class="math display">\[step:quadratic\]</span></a>–<a href="systems-thinking.html#step:youtlier" reference-type="ref" reference="step:youtlier"><span class="math display">\[step:youtlier\]</span></a> as common checks of the assumptions of the
+linear model. Indeed, “checking the assumptions” for a linear regression
+model can be thought of as a way to decrease the size of the anomaly
+space for a statistical methods system while also ensuring that
+erroneous or misleading results do not emerge from the system.
+Alternatively, we can say that these checks increase the size of the
+minimal cutsets for the fault trees in the anomaly space.</p>
+<p>Consider the anomaly “<span class="math inline">\(\hat{\beta}_1 &lt; 0\)</span> when outputted from the model
+fit" for the system in Figure <a href="systems-thinking.html#modelSLRrev" reference-type="ref" reference="modelSLRrev">6</a>. The fault tree for the revised simple linear
+regression system with additional checks is shown in
+Figure <a href="systems-thinking.html#ftreeSLRrev" reference-type="ref" reference="ftreeSLRrev">7</a>.
+The top of the fault tree for this anomaly class is similar to the one
+shown in Figure <a href="systems-thinking.html#ftreeSLR" reference-type="ref" reference="ftreeSLR">2</a>. However, when we take the branch that considers”contaminated data", things begin to change. We can see that the two
+AND gates (<span class="math inline">\(G_2\)</span> and <span class="math inline">\(G_5\)</span>) below the event “Contaminated data produce
+slope <span class="math inline">\(&lt; 0\)</span>" imply that multiple events have to occur in order to
+trigger this type of anomaly.</p>
+<div class="figure">
+<img src="ftreeSLRrev.png" id="ftreeSLRrev" style="width:5in" alt="" />
+<p class="caption">Revised fault tree for simple linear regression system with additional
+checks.</p>
+</div>
+<p>The minimal cutsets for this part of the fault tree are all of size 5,
+meaning that five events have to occur in order to trigger the anomaly
+at the top of the tree. For example, one of the cutsets indicates that
+if contaminated data were to produce <span class="math inline">\(\hat{\beta}_1&lt;0\)</span>, we would require
+that (1) outliers were present (<span class="math inline">\(E_{11}\)</span>); and (2) the contamination was
+arranged to produce <span class="math inline">\(\hat{\beta}_1&lt;0\)</span> (<span class="math inline">\(E_{12}\)</span>); and (3) the quadratic
+coefficient in the quadratic model was close to 0 (<span class="math inline">\(E_9\)</span>); and (4) all
+residuals <span class="math inline">\(|e_i|&lt;3\)</span> (<span class="math inline">\(E_4\)</span>); and (5) all leverages <span class="math inline">\(h_i&lt;4\bar{h}\)</span>
+(<span class="math inline">\(E_6\)</span>). While it is possible to imagine this scenario occurring as a
+result of random fluctuations in the data, it is more likely that we
+would observe this pattern because of a change in the process governing
+the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (i.e. the other branch at the top
+of the tree). In other words, with this revised statistical methods
+system, if the anomaly at the top of the tree were observed to occur,
+the more likely explanation is that our model is incorrect rather than
+there being a problem with the data.</p>
+</div>
+</div>
+<div id="sec:discussion" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Discussion</h2>
+<p>Data analysis is often depicted as an iterative process, but the precise
+details of how this iteration works have not been specified in a manner
+that can be broadly generalized. This paper attempts to systematically
+describe this iterative process by framing a critical aspect of data
+analysis as a process involving the recognition of anomalies and the
+enumeration of their root causes. The consideration of anomalies in data
+analysis provides a mechanism for interpreting statistical output in a
+manner that allows us to adjust our expectations about the data
+generation process and revise the statistical methods systems we build.</p>
+<p>Perhaps the most useful aspect of framing the data analytic process in
+terms of anomalies is that it forces us to intentionally consider a set
+of expected outcomes when a statistical methods system is applied to
+data. This “pre-registration" of outcomes is what allows us to detect
+anomalies in the first place and gives us a concrete basis for
+interpreting the output from an analysis. While experienced analysts
+likely already do this (perhaps unconsciously) and can iterate through a
+series of anomalies and root causes quickly, having an explicit
+statement of expected outcomes and a formal methodology for identifying
+root causes may be valuable to novices who are still learning the craft.
+Some have suggested that the reliance on explicit hypotheses can lead
+analysts to overlook important aspects of the
+data <span class="citation">(<a href="#ref-yanai2020hypothesis" role="doc-biblioref"><strong>yanai2020hypothesis?</strong></a>)</span>. However, we would argue that it is not the
+pre-specification of outcomes that is the issue here, but rather the
+choice of confirmatory methods systems in situations where the data
+generating process is not well-understood.</p>
+<p>We have proposed the use of fault trees as a formal approach to
+identifying the possible root causes of a data analytic anomaly. This
+methodology is well-established in the systems engineering literature
+and its general properties are described elsewhere <span class="citation">(<a href="#ref-michael2002fault" role="doc-biblioref"><strong>michael2002fault?</strong></a>)</span>.
+However, we struggle to find any explicit use of fault trees in the
+statistical analysis literature. We believe fault trees have something
+to contribute to the process of doing data analysis. They force analysts
+to consider the anomaly space of a statistical methods system and to
+interrogate the various possible anomalies that the system may produce.
+Fault trees provide a new approach to comparing the strengths and
+weaknesses of different analytic systems in terms of how anomalies can
+be identified and under what conditions they might occur. In particular,
+they provide a way to characterize the differences between exploratory
+and confirmatory statistical methods systems. Finally, fault trees can
+record the historical knowledge of specific types of data analysis and
+can serve as a useful educational tool for teaching newcomers to those
+areas.</p>
+<p>We hypothesize that the breadth and depth of a fault tree are directly
+connected to the range of experience of the analyst or analysts who are
+using the system. Experience can be gained over time or by working with
+and learning from a wide range of collaborators. Diversity of
+experience, both across time and across people, can only serve to
+improve the quality and usefulness of the fault tree. Furthermore, the
+fault tree can be passed down as a record of experience to new analysts
+working with the same system or with similar data.</p>
+<p>A topic not covered here is the question of how can analysts recognize
+an anomaly in the first place? Anomaly <em>detection</em> requires having
+enough background knowledge to create a reasonable set of expected
+outcomes. If the set of expected outcomes is too large, then there will
+be no chance of observing any anomalies and no way to inform our
+expectations or update our analytic systems. The ability to construct a
+proper set of expected outcomes can be reinforced through rigorous
+preparation (e.g. summarizing the literature, meta-analysis),
+pre-registration of hypotheses <span class="citation">(<a href="#ref-asendorpf2013recommendations" role="doc-biblioref"><strong>asendorpf2013recommendations?</strong></a>)</span>, and
+experience working with similar data.</p>
+<p>Data analysis is a process that involves making a series of decisions
+and the manner in which we make those decisions is often not
+well-documented <span class="citation">(<a href="#ref-simmons2011false" role="doc-biblioref"><strong>simmons2011false?</strong></a>; <a href="#ref-gelman2014statistical" role="doc-biblioref"><strong>gelman2014statistical?</strong></a>)</span>. While fault
+trees provide a formal mechanism for enumerating the possible root
+causes of an anomaly, the analyst must then decide what to do next. For
+example, the analyst must decide which collection of root causes should
+be further investigated. This choice could be made based on the
+analyst’s determination of the relative likelihood of each of the root
+causes, with the most likely cause being the highest priority. Given the
+decision-making nature of data analysis, it may be possible to employ
+the tools of decision theory to optimize the analyst’s
+choices <span class="citation">(<a href="#ref-smelser2001international" role="doc-biblioref"><strong>smelser2001international?</strong></a>)</span>. However, any application of
+decision theoretic tools would require a much more precise specification
+of the decision process than is likely available. Notions of utility and
+consequences may only be vaguely known and it may not be possible to
+assign a probability distribution to the various root causes in the
+fault tree. However, with experience, and perhaps after collection of
+some data on decisions made in the past, it may be possible to employ a
+formal decision-theoretic framework to the data analytic decision-making
+process.</p>
+<p>In this paper we have intentionally avoided discussion of software
+implementations. Modern data analyses are necessarily implemented in
+software, which can produce their own anomalies separately for reasons
+that may or may not be related to the data analysis itself. For example,
+a poorly formatted data file might cause software reading in that data
+file to crash. Data analysts must to some extent be able to trace
+anomalies or outright failures to possible software-related root causes.
+Therefore, familiarity with software implementations may be of equal
+importance to familiarity with the statistical properties of the methods
+implemented. Our discussion of anomalies here parallels ideas in
+software unit testing, which is a practice that is employed to ensure
+that software anomalies are detected in the development
+process <span class="citation">(<a href="#ref-runeson2006survey" role="doc-biblioref"><strong>runeson2006survey?</strong></a>; <a href="#ref-testthat2011" role="doc-biblioref"><strong>testthat2011?</strong></a>)</span>.</p>
+<p>Considering the root causes of data analytic anomalies reinforces the
+importance of the reproducibility of analyses <span class="citation">(<a href="#ref-peng2011reproducible" role="doc-biblioref"><strong>peng2011reproducible?</strong></a>)</span>.
+Reproducible research allows others to reconstruct the statistical
+methods system that was applied to the data. In a “post-mortem"
+situation where an anomaly is being investigated, possibly by an
+independent third party, having the code and datasets available is
+critical for reconstructing the sequence of events that lead to the
+anomaly. Without such information, it is impossible to construct the
+fault tree necessary for enumerating the possible root causes.</p>
+<p>It is interesting to consider the approach proposed here in the context
+of modern machine learning algorithms. Iterative methods like boosting
+essentially attempt to automate the evaluation of anomalies and update
+their predictions successively based on pre-determined rules for
+evaluating their fault trees. The original AdaBoost algorithm
+re-weighted misclassified observations more heavily so that successive
+iterations would produce weak classifiers focused on those
+values <span class="citation">(<a href="#ref-friedman2002stochastic" role="doc-biblioref"><strong>friedman2002stochastic?</strong></a>; <a href="#ref-friedman2000additive" role="doc-biblioref"><strong>friedman2000additive?</strong></a>)</span>. This implies
+that in evaluating the anomaly of a misclassified observation, AdaBoost
+always takes the branch of the fault tree that considers the model to be
+somehow incorrect. Many have pointed out that the performance of such
+algorithms is degraded by outliers and have proposed robust
+alternatives <span class="citation">(<a href="#ref-long2010random" role="doc-biblioref"><strong>long2010random?</strong></a>; <a href="#ref-li2018boosting" role="doc-biblioref"><strong>li2018boosting?</strong></a>)</span>.</p>
+<p>In this paper we focus on what can be learned from a single dataset in a
+given data analysis. Our goal was to develop an approach that would be
+useful to a data analyst at the moment of data analysis. However, there
+clearly are limits on what can be learned from the observed data. As
+presented here, some anomalies, such as outliers or nonlinear structure,
+can be observed. But other problems, such as the presence of unobserved
+confounders, that might affect the external validity of an analysis,
+simply cannot be checked with the observed data <span class="citation">(<a href="#ref-ogburn2019comment" role="doc-biblioref"><strong>ogburn2019comment?</strong></a>)</span>.
+Hence, we must draw a distinction between “assumptions" that can be
+checked and genuine assumptions that simply must be assumed to be true.
+In general, checkable assumptions can be evaluated with the observed
+data and any information gained can be incorporated into the statistical
+methods system (as we demonstrated in
+Section <a href="#sec:slrfixed" reference-type="ref" reference="sec:slrfixed">5.4</a>).</p>
+<p>The process of doing data analysis is complex and often idiosyncratic
+but statisticians should not refrain from attempting to describe it
+formally. As data science and statistics become more fundamental to many
+aspects of society, we need to develop ways to generalize our approach
+to analyzing data and translate those ideas to ever wider audiences. We
+propose that characterizing data analysis as a process of diagnosing
+anomalies and identifying root causes via fault trees is one such
+generalizable approach that can serve as a guide in a wide variety of
+data analyses.</p>
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analytic-design.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec:notation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
