@@ -12,7 +12,7 @@ ottrpal::set_knitr_image_path()
 The presentation of how data analyses are conducted is typically done in
 a forward manner. A question is posed, data are collected, and given the
 question and data, a system of statistical methods is assembled to
-produce evidence. That evidence is then intepreted in the context of the
+produce evidence. That evidence is then interpreted in the context of the
 original question. While such a description provides a useful model, it
 is incomplete in that it assumes the statistical methods are completely
 determined by the question and the data. In practice, there is an
@@ -172,7 +172,7 @@ the output of the system or determine how the output informs our
 understanding of the underlying data generation process.
 
 An important property of the set of expected outcomes is that the
-expected outcomes are alway stated in terms of the observed output of
+expected outcomes are always stated in terms of the observed output of
 the system, *not* any underlying unobserved population parameters. We
 draw a distinction here between *hypotheses*, which are statements about
 the underlying population, and *expected outcomes*, which are statements
@@ -343,7 +343,7 @@ introduced into the data before inputting to the regression model.
 
 The completed fault tree is shown in
 Figure [2](#ftreeSLR){reference-type="ref" reference="ftreeSLR"} and was
-built using the FaultTree package in R [@faulttreeRpackage2020]. The
+built using the `FaultTree` package in R [@faulttreeRpackage2020]. The
 leaf nodes are labeled with circles to indicate the root cause events.
 
 ![Fault tree for unexpected event of "Estimated coefficients outside of
@@ -825,7 +825,7 @@ a poorly formatted data file might cause software reading in that data
 file to crash. Data analysts must to some extent be able to trace
 anomalies or outright failures to possible software-related root causes.
 Therefore, familiarity with software implementations may be of equal
-importance to familarity with the statistical properties of the methods
+importance to familiarity with the statistical properties of the methods
 implemented. Our discussion of anomalies here parallels ideas in
 software unit testing, which is a practice that is employed to ensure
 that software anomalies are detected in the development
