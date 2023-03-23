@@ -12,7 +12,7 @@ ottrpal::set_knitr_image_path()
 The presentation of how data analyses are conducted is typically done in
 a forward manner. A question is posed, data are collected, and given the
 question and data, a system of statistical methods is assembled to
-produce evidence. That evidence is then intepreted in the context of the
+produce evidence. That evidence is then interpreted in the context of the
 original question. While such a description provides a useful model, it
 is incomplete in that it assumes the statistical methods are completely
 determined by the question and the data. In practice, there is an
@@ -107,7 +107,7 @@ methods system* is a collection of data analytic elements, procedures,
 and tools that are connected together to produce a data analysis
 *output*, such as a plot, summary statistic, parameter estimate, or
 other statistical quantity. By connecting these elements and tools
-togther, we create a complex system through which data are transformed,
+together, we create a complex system through which data are transformed,
 summarized, visualized, and
 modeled [@hick:peng:2019; @Breiman2001cultures]. Each of the components
 in the system will have its own inputs and outputs and tracing the path
@@ -172,7 +172,7 @@ the output of the system or determine how the output informs our
 understanding of the underlying data generation process.
 
 An important property of the set of expected outcomes is that the
-expected outcomes are alway stated in terms of the observed output of
+expected outcomes are always stated in terms of the observed output of
 the system, *not* any underlying unobserved population parameters. We
 draw a distinction here between *hypotheses*, which are statements about
 the underlying population, and *expected outcomes*, which are statements
@@ -212,7 +212,7 @@ and therefore hypothesize that the underlying population mean is $\mu=3$
 without assuming a Normal distribution. This analyst might also know
 that the data collection process can be problematic, leading to very
 large observations on occasion. Therefore, based on experience and
-intution, this analyst has a wider expected outcome interval of
+intuition, this analyst has a wider expected outcome interval of
 $[1, 5]$.
 
 In both examples here, the set of expected outcomes was a statement
@@ -250,7 +250,7 @@ collection of potential outputs from the system which would indicate
 that an anomaly has occurred. Fundamentally, the anomaly space is the
 complement of the set of expected outcomes. Not all areas of the anomaly
 space are equally important and in some applications it may be that
-anomalies occuring in certain subsets of the anomaly space are more
+anomalies occurring in certain subsets of the anomaly space are more
 interesting than anomalies occurring elsewhere. The size of the anomaly
 space of a statistical methods system is determined by the outputs
 produced by the system. Looking back to the simple linear model system
@@ -343,7 +343,7 @@ introduced into the data before inputting to the regression model.
 
 The completed fault tree is shown in
 Figure [2](#ftreeSLR){reference-type="ref" reference="ftreeSLR"} and was
-built using the FaultTree package in R [@faulttreeRpackage2020]. The
+built using the `FaultTree` package in R [@faulttreeRpackage2020]. The
 leaf nodes are labeled with circles to indicate the root cause events.
 
 ![Fault tree for unexpected event of "Estimated coefficients outside of
@@ -825,7 +825,7 @@ a poorly formatted data file might cause software reading in that data
 file to crash. Data analysts must to some extent be able to trace
 anomalies or outright failures to possible software-related root causes.
 Therefore, familiarity with software implementations may be of equal
-importance to familarity with the statistical properties of the methods
+importance to familiarity with the statistical properties of the methods
 implemented. Our discussion of anomalies here parallels ideas in
 software unit testing, which is a practice that is employed to ensure
 that software anomalies are detected in the development
@@ -846,10 +846,10 @@ of modern machine learning algorithms. Iterative methods like boosting
 essentially attempt to automate the evaluation of anomalies and update
 their predictions successively based on pre-determined rules for
 evaluating their fault trees. The original AdaBoost algorithm
-re-weighted missclassified observations more heavily so that successive
+re-weighted misclassified  observations more heavily so that successive
 iterations would produce weak classifiers focused on those
 values [@friedman2002stochastic; @friedman2000additive]. This implies
-that in evaluating the anomaly of a missclassified observation, AdaBoost
+that in evaluating the anomaly of a misclassified  observation, AdaBoost
 always takes the branch of the fault tree that considers the model to be
 somehow incorrect. Many have pointed out that the performance of such
 algorithms is degraded by outliers and have proposed robust
