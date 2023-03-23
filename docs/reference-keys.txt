@@ -30,6 +30,9 @@ characteristics-of-exploratory-and-confirmatory-systems
 from-exploratory-to-confirmatory-fixing-anscombes-quartet
 sec:discussion
 sec:notation
-counterfactuals-and-alternatives
+analysis-of-alternatives
 narrative-structure
+block-diagrams
+specifying-alternatives
+analysis-of-alternatives-1
 references
