@@ -2,7 +2,7 @@ AdaBoost
 algorithmized
 AnVIL
 Anscombe
-Abscombe's
+Anscombe's
 anscombeplot
 BIPOC
 Bloomberg
@@ -34,8 +34,9 @@ favicon
 Fleek
 Fleek's
 frac
-ftreePolot
+ftreePlot
 ftreeSLR
+ftreeSLRrev
 funders
 fyi
 generalizable
@@ -55,9 +56,10 @@ leq
 Markua
 mathcal
 mbox
+misclassified
 modelPlot
 modelSLR
-modelSLRev
+modelSLRrev
 mortem
 NCI
 NHGRI
