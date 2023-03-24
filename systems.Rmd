@@ -881,35 +881,3 @@ anomalies and identifying root causes via fault trees is one such
 generalizable approach that can serve as a guide in a wide variety of
 data analyses.
 
-Fault Tree Notation {#sec:notation}
-===================
-
-Comprehensive details on constructing fault trees can be found in
-Vesely, et al. [@vesely1981fault] and Ericson [@ericson2011fault]. We
-provide an abbreviated summary here that is sufficient for understanding
-the fault trees in this paper.
-
-If we consider the system shown in
-Figure [1](#modelSLR){reference-type="ref" reference="modelSLR"}, we
-could implement it with the following R code.
-
-    ## Read in data from CSV file
-    dat <- read.csv("dataset.csv") 
-
-    ## Fit linear model
-    fit <- lm(y ~ x, data = dat)
-
-    ## Extract estimated coefficients
-    b <- coef(fit)
-
-    ## Return `b'
-
-If we assume that the code underlying the execution of the system works
-as expected and that the data are properly formatted and clean, then the
-code will execute and coefficient vector `b` will be returned. If we are
-to consider what are the failure modes of this system, it must be noted
-that the coefficient vector `b` is the *only* output from the system
-according to Figure [1](#modelSLR){reference-type="ref"
-reference="modelSLR"}. Therefore, any failure modes associated with the
-system must correspond to the coefficient values.
-
