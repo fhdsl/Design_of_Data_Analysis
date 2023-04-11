@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Design of Data Analysis</title>
+  <meta name="description" content="Design of Data Analysis." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Design of Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Design of Data Analysis." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Design of Data Analysis" />
+  
+  <meta name="twitter:description" content="Design of Data Analysis." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
+<link rel="next" href="analytic-iteration.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://hutchdatascience.org/" target="_blank"><img src="assets/RR25.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#available-course-formats"><i class="fa fa-check"></i>Available course formats</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="analytic-iteration.html"><a href="analytic-iteration.html"><i class="fa fa-check"></i><b>1</b> Analytic Iteration</a>
+<ul>
+<li class="chapter" data-level="" data-path="analytic-iteration.html"><a href="analytic-iteration.html#learning-objectives-1"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="1.1" data-path="analytic-iteration.html"><a href="analytic-iteration.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="analytic-iteration.html"><a href="analytic-iteration.html#epicycle-of-analysis"><i class="fa fa-check"></i><b>1.2</b> Epicycle of Analysis</a></li>
+<li class="chapter" data-level="1.3" data-path="analytic-iteration.html"><a href="analytic-iteration.html#setting-expectations"><i class="fa fa-check"></i><b>1.3</b> Setting Expectations</a></li>
+<li class="chapter" data-level="1.4" data-path="analytic-iteration.html"><a href="analytic-iteration.html#collecting-information"><i class="fa fa-check"></i><b>1.4</b> Collecting Information</a></li>
+<li class="chapter" data-level="1.5" data-path="analytic-iteration.html"><a href="analytic-iteration.html#comparing-expectations-to-data"><i class="fa fa-check"></i><b>1.5</b> Comparing Expectations to Data</a></li>
+<li class="chapter" data-level="1.6" data-path="analytic-iteration.html"><a href="analytic-iteration.html#applying-the-epicycle-of-analysis-process"><i class="fa fa-check"></i><b>1.6</b> Applying the Epicycle of Analysis Process</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="analytic-iteration.html"><a href="analytic-iteration.html#example-asthma-prevalence-in-the-u.s."><i class="fa fa-check"></i><b>1.6.1</b> Example: Asthma prevalence in the U.S.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="analytic-design.html"><a href="analytic-design.html"><i class="fa fa-check"></i><b>2</b> Analytic Design</a>
+<ul>
+<li class="chapter" data-level="" data-path="analytic-design.html"><a href="analytic-design.html#learning-objectives-2"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="2.1" data-path="analytic-design.html"><a href="analytic-design.html#types-of-questions"><i class="fa fa-check"></i><b>2.1</b> Types of Questions</a></li>
+<li class="chapter" data-level="2.2" data-path="analytic-design.html"><a href="analytic-design.html#applying-the-epicycle-to-stating-and-refining-your-question"><i class="fa fa-check"></i><b>2.2</b> Applying the Epicycle to Stating and Refining Your Question</a></li>
+<li class="chapter" data-level="2.3" data-path="analytic-design.html"><a href="analytic-design.html#characteristics-of-a-good-question"><i class="fa fa-check"></i><b>2.3</b> Characteristics of a Good Question</a></li>
+<li class="chapter" data-level="2.4" data-path="analytic-design.html"><a href="analytic-design.html#translating-a-question-into-a-data-problem"><i class="fa fa-check"></i><b>2.4</b> Translating a Question into a Data Problem</a></li>
+<li class="chapter" data-level="2.5" data-path="analytic-design.html"><a href="analytic-design.html#case-study"><i class="fa fa-check"></i><b>2.5</b> Case Study</a></li>
+<li class="chapter" data-level="2.6" data-path="analytic-design.html"><a href="analytic-design.html#concluding-thoughts"><i class="fa fa-check"></i><b>2.6</b> Concluding Thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="systems-thinking.html"><a href="systems-thinking.html"><i class="fa fa-check"></i><b>3</b> Systems Thinking</a>
+<ul>
+<li class="chapter" data-level="" data-path="systems-thinking.html"><a href="systems-thinking.html#learning-objectives-3"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="3.1" data-path="systems-thinking.html"><a href="systems-thinking.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="systems-thinking.html"><a href="systems-thinking.html#data-analysis-systems"><i class="fa fa-check"></i><b>3.2</b> Data Analysis Systems</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="systems-thinking.html"><a href="systems-thinking.html#example-a-simple-linear-model-system"><i class="fa fa-check"></i><b>3.2.1</b> Example: A Simple Linear Model System</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:expectations"><i class="fa fa-check"></i><b>3.3</b> Set of Expected Outcomes</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:expectedmean"><i class="fa fa-check"></i><b>3.3.1</b> Example: Expected Outcomes for the Sample Mean</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:faultpoints"><i class="fa fa-check"></i><b>3.4</b> Anomaly Set</a></li>
+<li class="chapter" data-level="3.5" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:faulttrees"><i class="fa fa-check"></i><b>3.5</b> Fault Trees</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="systems-thinking.html"><a href="systems-thinking.html#example-fault-tree-for-a-simple-linear-model-system"><i class="fa fa-check"></i><b>3.5.1</b> Example: Fault Tree for a Simple Linear Model System</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="systems-thinking.html"><a href="systems-thinking.html#exploratory-vs.-confirmatory-methods-systems"><i class="fa fa-check"></i><b>3.6</b> Exploratory vs. Confirmatory Methods Systems</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="systems-thinking.html"><a href="systems-thinking.html#a-scatterplotregression-line-system"><i class="fa fa-check"></i><b>3.6.1</b> A Scatterplot+Regression Line System</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="systems-thinking.html"><a href="systems-thinking.html#comparison-of-systems"><i class="fa fa-check"></i><b>3.7</b> Comparison of Systems</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="systems-thinking.html"><a href="systems-thinking.html#characteristics-of-exploratory-and-confirmatory-systems"><i class="fa fa-check"></i><b>3.7.1</b> Characteristics of Exploratory and Confirmatory Systems</a></li>
+<li class="chapter" data-level="3.7.2" data-path="systems-thinking.html"><a href="systems-thinking.html#from-exploratory-to-confirmatory-fixing-anscombes-quartet"><i class="fa fa-check"></i><b>3.7.2</b> From Exploratory to Confirmatory: “Fixing” Anscombe’s Quartet</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="systems-thinking.html"><a href="systems-thinking.html#sec:discussion"><i class="fa fa-check"></i><b>3.8</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="analysis-of-alternatives.html"><a href="analysis-of-alternatives.html"><i class="fa fa-check"></i><b>4</b> Analysis of Alternatives</a>
+<ul>
+<li class="chapter" data-level="" data-path="analysis-of-alternatives.html"><a href="analysis-of-alternatives.html#learning-objectives-4"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="4.1" data-path="analysis-of-alternatives.html"><a href="analysis-of-alternatives.html#narrative-structure"><i class="fa fa-check"></i><b>4.1</b> Narrative Structure</a></li>
+<li class="chapter" data-level="4.2" data-path="analysis-of-alternatives.html"><a href="analysis-of-alternatives.html#block-diagrams"><i class="fa fa-check"></i><b>4.2</b> Block Diagrams</a></li>
+<li class="chapter" data-level="4.3" data-path="analysis-of-alternatives.html"><a href="analysis-of-alternatives.html#specifying-alternatives"><i class="fa fa-check"></i><b>4.3</b> Specifying Alternatives</a></li>
+<li class="chapter" data-level="4.4" data-path="analysis-of-alternatives.html"><a href="analysis-of-alternatives.html#analysis-of-alternatives-1"><i class="fa fa-check"></i><b>4.4</b> Analysis of Alternatives</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<p style="text-align:center;"> <a href=" https://stat.utexas.edu/"> and The University of Texas at Austin </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/W6Mg4rzuMK6Yk3Am8"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Design of Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/RR25_thin_main_image.png">
+</div>
+<div id="header">
+<h1 class="title">Design of Data Analysis</h1>
+<p class="date"><em>April, 2023</em></p>
+</div>
+<div id="about-this-course" class="section level1 unnumbered">
+<h1>About this Course</h1>
+<p>The concept of reproducibility of a scientific investigation is most directly connected to the analysis of the data. Therefore, this course provides an overview of the structure of a data analysis and how to design an analysis to maximize the potential for reproducibility by research team members and by others. A key premise of this course is that reproducibility failure is often a consequence of poorly specified data analyses and a lack of understanding of the primary goal of the analysis by key stakeholders. The idea that “prevention is the best medicine” underlies this module, as proper design, structure, and execution of data analyses can prevent problems further downstream. We will therefore cover key analytic design concepts such as analytic iteration, analysis requirements and expectation setting, and unexpected outcomes and root causes.</p>
+<div id="learning-objectives" class="section level2 unnumbered">
+<h2>Learning Objectives</h2>
+<ol style="list-style-type: decimal">
+<li>Implement the basic analytic cycle of the sense-making process: setting expectations about the data, comparing results to expectations, diagnosing unexpected outcomes, hypothesizing explanations and alternatives, and revising our understanding of the data.</li>
+<li>Given a problem statement, characterize the stakeholders for a data analysis and what they hope to obtain/learn from the analysis</li>
+<li>Write a high-level description of final/key/primary outputs and measures of uncertainty to be produced by the analysis</li>
+<li>Develop a summary of key assumptions or constraints concerning inputs, data, or other factors.</li>
+<li>Develop a set of requirements/expectations for the analysis regarding the outputs</li>
+<li>Identify key analytic and data processing choices in an analysis that may significantly affect outputs</li>
+<li>Identify any unexpected outcomes for a given analysis plan</li>
+<li>Apply techniques for identifying root causes of any unexpected outcomes produced by the analysis</li>
+</ol>
+</div>
+<div id="available-course-formats" class="section level2 unnumbered">
+<h2>Available course formats</h2>
+<p>This course is available in multiple formats which allows you to take it in the way that best suites your needs. You can take it for certificate which can be for free or fee.</p>
+<ul>
+<li>The material for this course can be viewed without login requirement on this <a href="http://hutchdatascience.org/Design_of_Data_Analysis/">Bookdown website</a>. This format might be most appropriate for you if you rely on screen-reader technology.</li>
+<li>Our courses are open source, you can find the <a href="https://github.com/fhdsl/Design_of_Data_Analysis/">source material for this course on GitHub</a>.</li>
+</ul>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="analytic-iteration.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
