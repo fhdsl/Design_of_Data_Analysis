@@ -6,6 +6,13 @@ ottrpal::set_knitr_image_path()
 
 ## Learning Objectives {-}
 
+The learning objectives of this chapter are:
+
+1. Describe potential outcome, expected outcome, and anomaly sets for a data analysis system
+
+2. Describe how a fault tree can be used to characterize the cause of an unexpected outcome
+
+3. Build a fault tree for a simple data analysis system
 
 ## Introduction
 
@@ -22,7 +29,7 @@ the data. This process of revision is driven by observing deviations
 between the data and what we expect the data to look like.
 
 Much previous work dedicated to studying the data analysis process has
-focused on the notion of "statistical thinking,\" or the cognitive
+focused on the notion of "statistical thinking," or the cognitive
 processes that occur within the analyst while doing data
 analysis [@wildpfannkuch1999; @grol:wick:2014; @wats:call:2003; @hortonhardin2015].
 Grolemund and Wickham [@grol:wick:2014] refer to these "forwards\" and
@@ -91,19 +98,18 @@ approach to teaching data analysis on a large scale.
 In this paper we introduce the concept of a statistical methods system,
 which is a collection of statistical tools that are applied to a dataset
 for answering a given question. We then discuss the notion of a set of
-expected outcomes and an anomaly space that is determined by the outputs
+expected outcomes and an anomaly set that is determined by the outputs
 of the system and the expected outcomes. Finally, we describe fault
 trees and how they can be used to analyze a statistical methods system
 with respect to different anomalies. We also provide some examples of
 how fault trees can be used to compare different statistical methods
 systems and choose between them.
 
-## Statistical Methods Systems
+## Data Analysis Systems
 
 To study the manner in which data analyses can produced unexpected
 results, it is useful to first consider data analyses as a system of
-connected components that produce specific outputs. A *statistical
-methods system* is a collection of data analytic elements, procedures,
+connected components that produce specific outputs. A *data analysis system* is a collection of data analytic elements, procedures,
 and tools that are connected together to produce a data analysis
 *output*, such as a plot, summary statistic, parameter estimate, or
 other statistical quantity. By connecting these elements and tools
@@ -124,7 +130,7 @@ particular, should an analysis produce an unexpected result, the analyst
 might identify one of these contextual inputs as the root cause of the
 problem.
 
-A statistical methods system can be characterized as a sequence of steps
+A data analysis system can be characterized as a sequence of steps
 or a deterministic algorithm. The algorithm is not necessarily
 uni-directional and may double-back on itself and branch into multiple
 sections. Ultimately, the algorithm produces an output that may be
@@ -134,7 +140,7 @@ define the resolution of the system (i.e. how detailed we want to
 specify steps) and the boundaries of the system diagram. In particular,
 we should acknowledge what elements are excluded from the diagram, such
 as application-specific context or other assumptions [@vesely1981fault].
-The development of a statistical methods system would typically be
+The development of a data analysis system would typically be
 guided by statistical theory, as well as knowledge of the scientific
 question, any relevant context or previous research, available
 resources, and any design requirements for the system output.
@@ -148,7 +154,7 @@ intercept and slope estimates. A depiction of this system along with
 some representative R code is shown in
 Figure [1](#modelSLR){reference-type="ref" reference="modelSLR"}.
 
-![Simple linear regression statistical methods system with
+![Simple linear regression data analysis system with
 pseudo-code.](modelSLR.png){#modelSLR width="4in"}
 
 The diagram indicates that understanding how this system operates
@@ -160,11 +166,11 @@ analyze the data, we must have an understanding of the `read.csv()`,
 
 ## Set of Expected Outcomes {#sec:expectations}
 
-Once a statistical methods system is built, but before it is applied to
+Once a data analysis system is built, but before it is applied to
 the data, we can develop a set of *expected outcomes* for the system.
 These expected outcomes represent our current state of scientific
 knowledge and may reflect any gaps or biases in our understanding of the
-data, the problem at hand, or the behavior of the statistical methods
+data, the problem at hand, or the behavior of the data analysis
 system. The overarching goal of the data analysis is to produce outputs
 that will in some way improve our understanding of the scientific
 problem. Without any expected outcomes, it is challenging to interpret
@@ -178,13 +184,13 @@ draw a distinction here between *hypotheses*, which are statements about
 the underlying population, and *expected outcomes*, which are statements
 about the observed sample data. Another property of the set of expected
 outcomes is that they will generally have sharp boundaries. Therefore,
-once we observe the output from the statistical methods system, we know
+once we observe the output from the data analysis system, we know
 immediately and with complete certainty whether the output is expected
 or unexpected. Boundaries of this nature are important for the analyst
 so that decisions can be made regarding any next steps in the analysis.
 
 Developing a useful set of expected outcomes is part of the design
-process for a statistical methods system and depends on many factors,
+process for a data analysis system and depends on many factors,
 including our knowledge and assumptions about the underlying data
 generation process, our ability to model that process using statistical
 tools, our knowledge of the theoretical properties of those tools, and
@@ -221,7 +227,7 @@ The set of expected outcomes was also a fixed interval with clear
 boundaries, making it straightforward to determine whether the output
 would fall in the interval or not.
 
-## Anomaly Space {#sec:faultpoints}
+## Anomaly Set {#sec:faultpoints}
 
 An anomaly occurs only if there is a clearly defined set of expected
 outcomes for a system, and the observed output from the system does not
@@ -245,37 +251,37 @@ when a sample of size $n=10$ is inputted to the system". The observed
 output is $\bar{x}$, the deviation is "outside the interval
 $[-0.63, 0.63]$\", and the event occurs when $n=10$.
 
-The *anomaly space* of a statistical methods system consists of the
+The *anomaly set* of a data analysis system consists of the
 collection of potential outputs from the system which would indicate
-that an anomaly has occurred. Fundamentally, the anomaly space is the
+that an anomaly has occurred. Fundamentally, the anomaly set is the
 complement of the set of expected outcomes. Not all areas of the anomaly
 space are equally important and in some applications it may be that
-anomalies occurring in certain subsets of the anomaly space are more
+anomalies occurring in certain subsets of the anomaly set are more
 interesting than anomalies occurring elsewhere. The size of the anomaly
-space of a statistical methods system is determined by the outputs
+space of a data analysis system is determined by the outputs
 produced by the system. Looking back to the simple linear model system
 in Figure [1](#modelSLR){reference-type="ref" reference="modelSLR"},
 there are only two outputs ($\hat{\beta}_0$ and $\hat{\beta}_1$) that
-define the anomaly space. Therefore, any anomalies for that system must
+define the anomaly set. Therefore, any anomalies for that system must
 be determined by those two values.
 
-As the number of system outputs grows, the size of the anomaly space may
+As the number of system outputs grows, the size of the anomaly set may
 grow accordingly. For example, we can increase the size of the anomaly
 space for the simple linear model system by also returning the standard
 errors of the coefficients. With each additional output, we increase the
 number of ways in which anomalies can occur. Different systems with
-different sets of outputs will induce anomaly spaces of differing sizes
-and the nature of the anomaly space associated with a system may serve
-as a factor in choosing between systems. Also, because the anomaly space
+different sets of outputs will induce anomaly sets of differing sizes
+and the nature of the anomaly set associated with a system may serve
+as a factor in choosing between systems. Also, because the anomaly set
 depends on the specification of the set of expected outcomes, different
 analysts with different expectations could induce different anomaly
-spaces for the same statistical methods system.
+spaces for the same data analysis system.
 
-Once a statistical methods system has been applied to the data and an
+Once a data analysis system has been applied to the data and an
 anomaly has been observed, the "forward\" aspect of data analysis is
 complete and the analyst must begin the "backward\" aspect to determine
 what if any changes should be made to the analysis. Such changes could
-involve modifying the statistical methods system itself or could require
+involve modifying the data analysis system itself or could require
 changes to our set of expected outcomes based on this new information.
 However, before any decision can be made in response to observing an
 anomaly, a data analyst must enumerate the possible *root causes* of the
@@ -284,7 +290,7 @@ anomaly and determine which root causes should be investigated.
 ## Fault Trees {#sec:faulttrees}
 
 The key formal tool that we introduce here is the *fault tree*, which
-can be used to analyze the design and operation of a statistical methods
+can be used to analyze the design and operation of a data analysis
 system and to identify root causes for any system anomalies. A fault
 tree is a tool commonly used in systems engineering for conducting a
 structured risk assessment and has a long history in aviation,
@@ -309,13 +315,12 @@ Ericson [@ericson2011fault].
 
 In principle, a fault tree can be constructed for every potential system
 anomaly that could be observed. However, if the goal is to develop an
-understanding of the strengths and weaknesses of a statistical methods
+understanding of the strengths and weaknesses of a data analysis
 system's design, then it may be desirable to identify a few important
 anomalies whose fault trees provide substantial visibility into the
 operating characteristics of the system [@vesely1981fault].
 
-Example: Fault Tree for a Simple Linear Model System
-----------------------------------------------------
+### Example: Fault Tree for a Simple Linear Model System
 
 We can build a fault tree for the simple linear model system shown in
 Figure [1](#modelSLR){reference-type="ref" reference="modelSLR"}. Under
@@ -326,7 +331,7 @@ $\hat{\beta}_1<0$ or $\hat{\beta}_1>3$. For this example, we will define
 the anomaly of interest as "$\hat{\beta}_1 < 0$ when outputted from the
 model fit\". Note that although the set of expected outcomes is the
 interval $[0, 3]$, we define the anomaly as $\hat{\beta}_1<0$ and ignore
-the part of the anomaly space defined by $\hat{\beta}_1>3$. Similarly,
+the part of the anomaly set defined by $\hat{\beta}_1>3$. Similarly,
 possible anomalies concerning the intercept $\hat{\beta}_0$ will not be
 developed here.
 
@@ -370,40 +375,23 @@ indicates that any structural change also needs to be large enough
 (relative to the noise in the data) so that we are able to observe it in
 the data.
 
-### Minimal Cutsets
-
-A useful summary statistic from any properly constructed fault tree is
-the list of minimal cutsets, which is a summary of the minimal number of
-events that need to happen in order for the anomaly to occur. There may
-be many cutsets and there may be different cutsets with 1, 2, or more
-events in them. The fault tree in
-Figure [2](#ftreeSLR){reference-type="ref" reference="ftreeSLR"} has
-three cutsets of size 2: $\{E_{11}, E_{13}\}$, $\{E_{12}, E_{13}\}$, and
-$\{E_7, E_8\}$. An example of one cutset is (1) There are outliers in
-the raw data (event $E_{11}$), AND (2) a selection process arranges the
-outliers such that they produce $\hat{\beta}_1<0$ (event $E_{13}$). If
-this pair of events occurs, the system will experience the anomaly
-described at the top of the tree. Given the specification of a fault
-tree, minimal cutsets can generally be computed automatically using
-standard rules of boolean algebra [@michael2002fault].
-
 ## Exploratory vs. Confirmatory Methods Systems
 
-The anomaly space of the simple linear model system in
+The anomaly set of the simple linear model system in
 Figure [1](#modelSLR){reference-type="ref" reference="modelSLR"} is
 completely determined by the values of $\hat{\beta}_0$ or
-$\hat{\beta}_1$. The specification of the anomaly space here therefore
+$\hat{\beta}_1$. The specification of the anomaly set here therefore
 rules out other possible anomalies that may be of interest when applying
 a linear model. For example, an anomaly such as "One or more regression
 model residuals are larger than expected when outputted from the model
-fit\" is not contained within the anomaly space of the system, because
+fit\" is not contained within the anomaly set of the system, because
 the regression model residuals are not part of the system output. If
 there are unusually large residuals from the model fit, they can only
 cause an anomaly in this system inasmuch as they affect the values of
 $\hat{\beta}_0$ and $\hat{\beta}_1$. Whether this feature is a strength
 or a weakness of the system depends on the application context, but it
-suggests that the structure of the anomaly space should be considered
-when designing a statistical methods system.
+suggests that the structure of the anomaly set should be considered
+when designing a data analysis system.
 
 ### A Scatterplot+Regression Line System
 
@@ -413,7 +401,7 @@ and the overlaid simple linear regression line being the output of
 interest. This system is shown in
 Figure [3](#modelPlot){reference-type="ref" reference="modelPlot"}.
 
-![Scatterplot with overlaid regression line statistical methods system
+![Scatterplot with overlaid regression line data analysis system
 with pseudo-code.](modelPlot.png){#modelPlot width="5in"}
 
 The scatterplot system does not output the estimated regression
@@ -423,7 +411,7 @@ a plotting routine that can overlay the fitted regression line.
 The scatterplot system in Figure [3](#modelPlot){reference-type="ref"
 reference="modelPlot"} includes a plot of the data along with the
 regression line, which is considerably more revealing than the
-regression coefficients alone. The anomaly space of this system contains
+regression coefficients alone. The anomaly set of this system contains
 at least the following events:
 
 1.  Nonlinear structure visible in residuals;
@@ -437,8 +425,8 @@ at least the following events:
 4.  Intercept or slope of regression line out of expected
     range[\[failureSLR\]]{#failureSLR label="failureSLR"}.
 
-Note that the anomaly space of the simple linear model system is
-included within the anomaly space of the scatterplot+regression line
+Note that the anomaly set of the simple linear model system is
+included within the anomaly set of the scatterplot+regression line
 system (i.e. case [\[failureSLR\]](#failureSLR){reference-type="ref"
 reference="failureSLR"}). Because of the graphical nature of the output,
 all of the anomaly assessments in the scatterplot+regression line system
@@ -470,9 +458,9 @@ A key difference between the simple linear model system in
 Figure [1](#modelSLR){reference-type="ref" reference="modelSLR"} and the
 scatterplot+regression line system in
 Figure [3](#modelPlot){reference-type="ref" reference="modelPlot"} is
-the potential size of their respective anomaly spaces. The anomaly space
+the potential size of their respective anomaly sets. The anomaly set
 of the simple linear model system is determined by the estimated
-coefficients from the model while the anomaly space of the scatterplot
+coefficients from the model while the anomaly set of the scatterplot
 system is determined by the fitted linear regression line and all of the
 data points.
 
@@ -492,7 +480,7 @@ reference="anscombeplot"}. Upon seeing the four datasets, it is clear
 that the datasets are not identical and present some features that were
 perhaps unexpected.
 
-![Simple linear regression statistical methods
+![Simple linear regression data analysis
 system.](anscombeplot.pdf){#anscombeplot width="5in"}
 
 Each of the scatterplots in
@@ -531,11 +519,11 @@ graphing the data versus only computing numerical summaries. The
 rationale for his argument is not clearly articulated and is along the
 lines of "We know it when we see it". But it is possible to formally
 compare the two systems he proposes (numerical summaries vs.
-scatterplots) based on an analysis of their anomaly spaces and their
+scatterplots) based on an analysis of their anomaly sets and their
 fault trees.
 
 The value of the scatterplot+regression line approach in this situation
-is that its large anomaly space offers many opportunities to interrogate
+is that its large anomaly set offers many opportunities to interrogate
 the data analytic process by observing anomalies and question our
 understanding of the data generation process. When we compare the fault
 trees in Figure [2](#ftreeSLR){reference-type="ref"
@@ -571,23 +559,17 @@ unexpected problem with the estimated coefficients. However, if one is
 in the phase of data analysis where the data generation process is still
 being investigated (i.e. "exploratory analysis\") then it would make
 more sense to choose the scatterplot+regression line system. This system
-has a large anomaly space and a variety of ways in which anomalies can
+has a large anomaly set and a variety of ways in which anomalies can
 occur. Therefore, unexpected problems with the data or the modeling can
 easily be surfaced and possibly rectified by the data analyst.
 
-Characterizing statistical methods systems via their anomaly spaces and
+Characterizing data analysis systems via their anomaly sets and
 fault trees allows us to develop the following generalization with
 respect to exploratory and confirmatory methods systems:
 
-1.  An *exploratory statistical methods system* has a large anomaly
-    space and the fault trees associated with the anomalies have minimal
-    cutsets that are small in size or prioritize single event root
-    causes;
+1.  An *exploratory data analysis system* has a large anomaly space and the fault trees associated with the anomalies prioritize single event root causes;
 
-2.  A *confirmatory statistical methods system* has a small anomaly
-    space and the fault trees associated with each of the anomalies have
-    minimal cutsets that are large in size and few (if any) single event
-    root causes.
+2.  A *confirmatory data analysis system* has a small anomaly space and the fault trees associated with each of the anomalies have few (if any) single event root causes.
 
 Exploratory systems tend to prioritize visualization or related
 procedures where the number of outputs is on the order of the sample
@@ -602,7 +584,7 @@ reliable [@hube:1977; @tsiatis2007semiparametric]. Once we have
 determined which outputs are of interest, we typically want to refine
 the system to focus on those outputs; increasing the size of the anomaly
 space may serve as more of a distraction in this type of analysis.
-Critical to confirmatory statistical methods systems is their ability to
+Critical to confirmatory data analysis systems is their ability to
 protect against failures that are fundamentally unobservable within the
 context of the data analysis.
 
@@ -611,10 +593,10 @@ confirmatory system would be to start with an exploratory system applied
 to a preliminary dataset. Using a highly iterative process, the
 exploratory system could reveal a number of anomalies and allow the
 analyst to reconsider the set of expected outcomes and the design of the
-statistical methods system. Once the analyst has developed a deeper
+data analysis system. Once the analyst has developed a deeper
 understanding of the data generation process, a separate (perhaps
 larger) effort could be made to collect new data. At this point, a
-confirmatory statistical methods system could be applied to analyze
+confirmatory data analysis system could be applied to analyze
 those new data, incorporating the lessons learned from the exploratory
 analysis.
 
@@ -628,7 +610,7 @@ linear model system in Figure [1](#modelSLR){reference-type="ref"
 reference="modelSLR"} so that the output would be more reliable and
 trustworthy when applied to future datasets of this nature. The
 exploratory analysis based on the scatterplot provided useful
-information regarding the design of our statistical methods system that
+information regarding the design of our data analysis system that
 we can now incorporate into a revision.
 
 One way we could modify our original system is to design a system that
@@ -691,10 +673,10 @@ reference="step:quadratic"}--[\[step:youtlier\]](#step:youtlier){reference-type=
 reference="step:youtlier"} as common checks of the assumptions of the
 linear model. Indeed, "checking the assumptions" for a linear regression
 model can be thought of as a way to decrease the size of the anomaly
-space for a statistical methods system while also ensuring that
+space for a data analysis system while also ensuring that
 erroneous or misleading results do not emerge from the system.
 Alternatively, we can say that these checks increase the size of the
-minimal cutsets for the fault trees in the anomaly space.
+minimal cutsets for the fault trees in the anomaly set.
 
 Consider the anomaly "$\hat{\beta}_1 < 0$ when outputted from the model
 fit\" for the system in Figure [6](#modelSLRrev){reference-type="ref"
@@ -724,7 +706,7 @@ residuals $|e_i|<3$ ($E_4$); and (5) all leverages $h_i<4\bar{h}$
 result of random fluctuations in the data, it is more likely that we
 would observe this pattern because of a change in the process governing
 the relationship between $x$ and $y$ (i.e. the other branch at the top
-of the tree). In other words, with this revised statistical methods
+of the tree). In other words, with this revised data analysis
 system, if the anomaly at the top of the tree were observed to occur,
 the more likely explanation is that our model is incorrect rather than
 there being a problem with the data.
@@ -739,11 +721,11 @@ analysis as a process involving the recognition of anomalies and the
 enumeration of their root causes. The consideration of anomalies in data
 analysis provides a mechanism for interpreting statistical output in a
 manner that allows us to adjust our expectations about the data
-generation process and revise the statistical methods systems we build.
+generation process and revise the data analysis systems we build.
 
 Perhaps the most useful aspect of framing the data analytic process in
 terms of anomalies is that it forces us to intentionally consider a set
-of expected outcomes when a statistical methods system is applied to
+of expected outcomes when a data analysis system is applied to
 data. This "pre-registration\" of outcomes is what allows us to detect
 anomalies in the first place and gives us a concrete basis for
 interpreting the output from an analysis. While experienced analysts
@@ -765,13 +747,13 @@ and its general properties are described elsewhere [@michael2002fault].
 However, we struggle to find any explicit use of fault trees in the
 statistical analysis literature. We believe fault trees have something
 to contribute to the process of doing data analysis. They force analysts
-to consider the anomaly space of a statistical methods system and to
+to consider the anomaly set of a data analysis system and to
 interrogate the various possible anomalies that the system may produce.
 Fault trees provide a new approach to comparing the strengths and
 weaknesses of different analytic systems in terms of how anomalies can
 be identified and under what conditions they might occur. In particular,
 they provide a way to characterize the differences between exploratory
-and confirmatory statistical methods systems. Finally, fault trees can
+and confirmatory data analysis systems. Finally, fault trees can
 record the historical knowledge of specific types of data analysis and
 can serve as a useful educational tool for teaching newcomers to those
 areas.
@@ -880,4 +862,6 @@ propose that characterizing data analysis as a process of diagnosing
 anomalies and identifying root causes via fault trees is one such
 generalizable approach that can serve as a guide in a wide variety of
 data analyses.
+
+
 
