@@ -1,7 +1,9 @@
+/* variables are set in style_config_default.css */
+
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Karla:400,400i,700,700i|Lora:400,400i,700,700i&display=swap');
 
 p.caption {
-  color: #777;
+  color: var(--caption-color);
   margin-top: 10px;
 }
 p code {
@@ -43,7 +45,8 @@ pre code {
 /* ------------Links------------------ */
 
 .book .book-body .page-wrapper .page-inner section.normal a {
-  color: #0098a7;
+  color: var(--link-color);
+  text-decoration: underline;
 }
 
 
@@ -71,14 +74,14 @@ h1, h2, h3, h4 {
 .title {
   font-family: 'Lora';
   font-size: 4em !important;
-  color: #0098a7;
+  color: var(--accent-color);
   margin-top: 0.275em !important;
   margin-bottom: 0.35em !important;
 }
 
 .subtitle {
   font-family: 'Lora';
-  color: #0b8d96;
+  color: var(--link-color);
 }
 
 
@@ -99,7 +102,7 @@ h1, h2, h3, h4 {
 */
 
 .section.level1 > p:first-of-type:first-letter { /*drop cap for first p beneath level 1 headers only within class .section*/
-  color: #0098a7;
+  color: var(--accent-color);
   float: left;
   font-family: 'Abril Fatface', serif;
   font-size: 7em;
@@ -131,14 +134,14 @@ h1, h2, h3, h4 {
 
 
 .book .book-summary {
-  background: white;
+  background: var(--background-color);
   border-right: none;
 }
 
 /*---color of links in TOC----*/
 
 .book .book-summary a {
-color: #0098a7
+color: var(--accent-color)
 }
 
 .summary{
@@ -152,17 +155,17 @@ color: #0098a7
   padding-bottom: 8px;
   padding-left: 15px;
   padding-right: 15px;
-  color: #0098a7;
+  color: var(--accent-color);
 }
 
 .summary a:hover {
-  color: #f1c232 !important;
+  color: var(--highlight-color) !important;
 }
 
 .book .book-summary ul.summary li.active>a { /*active TOC links*/
-  color: #f1c232 !important;
+  color: var(--link-color) !important;
   border-left: solid 4px;
-  border-color: #f1c232;
+  border-color: var(--highlight-color);
   padding-left: 11px !important;
 }
 
@@ -191,23 +194,6 @@ li.appendix span, li.part span { /* for TOC part names */
 	height: 0px;
 }
 
-.trapezoid {
-  width: 132px;
-  text-align: center;
-  position: relative;
-    left: 10px;
-  border-right: 50px solid #ffb809;
-  border-bottom: 50px solid #dbdbdb;
-  border-left: 50px solid #0098a7;
-  box-sizing: content-box;
-}
-.trapezoid span {
-  position: absolute;
-  top: 8px;
-  bottom: 5px;
-  left: 5%;
-  color: #dbdbdb;
-}
 
 /*--- LOGO ---*/
 
@@ -267,7 +253,7 @@ li.appendix span, li.part span { /* for TOC part names */
 /* Sidebar formating --------------------------------------------*/
 /* from r-pkgs.org*/
 
-div.notice, div.warning, div.github, div.dictionary, div.reflection {
+div.notice, div.warning, div.github, div.dictionary, div.reflection, div.wip {
   padding: 1em;
   margin: 1em 0;
   padding-left: 100px;
@@ -276,11 +262,11 @@ div.notice, div.warning, div.github, div.dictionary, div.reflection {
 }
 
 div.notice{
-  border: 4px #f1c232;
+  border: 4px var(--highlight-color);
   border-style: solid;
   background-size: 70px;
   background-position: 15px center;
-  background-color: #e8ebee;
+  background-color: var(--callout-background-color);
   background-image: url("../assets/box_images/note.png");
 }
 
@@ -290,7 +276,7 @@ div.warning{
   border-style: solid;
   background-size: 70px;
   background-position: 15px center;
-  background-color: #e8ebee;
+  background-color: var(--callout-background-color);
   background-image: url("../assets/box_images/warning.png");
 }
 
@@ -299,28 +285,36 @@ div.github{
   border-style: solid;
   background-size: 70px;
   background-position: 15px center;
-  background-color: #e8ebee;
+  background-color: var(--callout-background-color);
   background-image: url("../assets/box_images/github.png");
 }
 
 div.dictionary{
-  border: 4px #f1c232;
+  border: 4px var(--highlight-color);
   border-style: solid;
   background-size: 70px;
   background-position: 15px center;
-  background-color: #e8ebee;
+  background-color: var(--callout-background-color);
   background-image: url("../assets/box_images/dictionary.png");
 }
 
 div.reflection{
-  border: 4px #f1c232;
+  border: 4px var(--highlight-color);
   border-style: solid;
   background-size: 90px;
   background-position: 15px center;
-  background-color: #e8ebee;
+  background-color: var(--callout-background-color);
   background-image: url("../assets/box_images/thinking_face.png");
 }
 
+div.wip{
+  border: 4px #000000;
+  border-style: solid;
+  background-size: 70px;
+  background-position: 15px center;
+  background-color: #f4d03f;
+  background-image: url("../assets/box_images/under_construction.png");
+}
 
 /* .book .book-body .page-wrapper .page-inner section.normal is needed
    to override the styles produced by gitbook, which are ridiculously
@@ -443,5 +437,5 @@ a.anchor:hover {
 .footer {
   font-family: "Lora", serif;
   font-size: .85em;
-  color: #193a5c;
+  color: var(--accent-color);
 }

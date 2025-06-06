@@ -1,6 +1,6 @@
 ---
 title: "Design of Data Analysis"
-date: "April, 2023"
+date: "June, 2025"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

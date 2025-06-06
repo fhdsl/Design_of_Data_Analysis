@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Design of Data Analysis</title>
   <meta name="description" content="Design of Data Analysis." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Design of Data Analysis" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Design of Data Analysis." />
   
@@ -31,7 +30,6 @@
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
 
 <link rel="next" href="analytic-iteration.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,11 +47,16 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -174,13 +177,13 @@
 </div>
 <div id="header">
 <h1 class="title">Design of Data Analysis</h1>
-<p class="date"><em>April, 2023</em></p>
+<p class="date"><em>June, 2025</em></p>
 </div>
-<div id="about-this-course" class="section level1 unnumbered">
-<h1>About this Course</h1>
+<div id="about-this-course" class="section level1 unnumbered hasAnchor">
+<h1>About this Course<a href="index.html#about-this-course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The concept of reproducibility of a scientific investigation is most directly connected to the analysis of the data. Therefore, this course provides an overview of the structure of a data analysis and how to design an analysis to maximize the potential for reproducibility by research team members and by others. A key premise of this course is that reproducibility failure is often a consequence of poorly specified data analyses and a lack of understanding of the primary goal of the analysis by key stakeholders. The idea that “prevention is the best medicine” underlies this module, as proper design, structure, and execution of data analyses can prevent problems further downstream. We will therefore cover key analytic design concepts such as analytic iteration, analysis requirements and expectation setting, and unexpected outcomes and root causes.</p>
-<div id="learning-objectives" class="section level2 unnumbered">
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="section level2 unnumbered hasAnchor">
+<h2>Learning Objectives<a href="index.html#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Implement the basic analytic cycle of the sense-making process: setting expectations about the data, comparing results to expectations, diagnosing unexpected outcomes, hypothesizing explanations and alternatives, and revising our understanding of the data.</li>
 <li>Given a problem statement, characterize the stakeholders for a data analysis and what they hope to obtain/learn from the analysis</li>
@@ -192,8 +195,8 @@
 <li>Apply techniques for identifying root causes of any unexpected outcomes produced by the analysis</li>
 </ol>
 </div>
-<div id="available-course-formats" class="section level2 unnumbered">
-<h2>Available course formats</h2>
+<div id="available-course-formats" class="section level2 unnumbered hasAnchor">
+<h2>Available course formats<a href="index.html#available-course-formats" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This course is available in multiple formats which allows you to take it in the way that best suites your needs. You can take it for certificate which can be for free or fee.</p>
 <ul>
 <li>The material for this course can be viewed without login requirement on this <a href="http://hutchdatascience.org/Design_of_Data_Analysis/">Bookdown website</a>. This format might be most appropriate for you if you rely on screen-reader technology.</li>
@@ -276,7 +279,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

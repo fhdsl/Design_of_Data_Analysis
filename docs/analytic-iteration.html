@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Analytic Iteration | Design of Data Analysis</title>
   <meta name="description" content="Chapter 1 Analytic Iteration | Design of Data Analysis." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Analytic Iteration | Design of Data Analysis" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Chapter 1 Analytic Iteration | Design of Data Analysis." />
   
@@ -31,7 +30,6 @@
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="index.html"/>
 <link rel="next" href="analytic-design.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,11 +47,16 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -172,24 +175,24 @@
 <div class="hero-image-container">
   <img class= "hero-image" src="assets/RR25_thin_main_image.png">
 </div>
-<div id="analytic-iteration" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Analytic Iteration</h1>
-<div id="learning-objectives-1" class="section level2 unnumbered">
-<h2>Learning Objectives</h2>
+<div id="analytic-iteration" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Analytic Iteration<a href="analytic-iteration.html#analytic-iteration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-objectives-1" class="section level2 unnumbered hasAnchor">
+<h2>Learning Objectives<a href="analytic-iteration.html#learning-objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The learning objectives for this chapter are:</p>
 <ol style="list-style-type: decimal">
 <li><p>Describe the basic analytic cycle of the sense-making process.</p></li>
 <li><p>Describe the importance of setting expectations about the data, comparing results to expectations, diagnosing unexpected outcomes, hypothesizing explanations and alternatives, and revising our understanding of the data.</p></li>
 </ol>
 </div>
-<div id="introduction" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Introduction</h2>
+<div id="introduction" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Introduction<a href="analytic-iteration.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To the uninitiated, a data analysis may appear to follow a linear, one-step-after-the-other process which at the end, arrives at a nicely packaged and coherent result. In reality, data analysis is a highly iterative and non-linear process, better reflected by a series of epicycles (see Figure), in which information is learned at each step, which then informs whether (and how) to refine, and redo, the step that was just performed, or whether (and how) to proceed to the next step.</p>
 <p>An epicycle is a small circle whose center moves around the circumference of a larger circle. In data analysis, the iterative process that is applied to all steps of the data analysis can be conceived of as an epicycle that is repeated for each step along the circumference of the entire data analysis process. Some data analyses appear to be fixed and linear, such as algorithms embedded into various software platforms, including apps. However, these algorithms are final data analysis products that have emerged from the very non-linear work of developing and refining a data analysis so that it can be “algorithmized.”</p>
 <p>Before diving into the “epicycle of analysis,” it’s helpful to pause and consider what we mean by a “data analysis.” Although many of the concepts we will discuss in this book are applicable to conducting a <em>study</em>, the framework and concepts in this, and subsequent, chapters are tailored specifically to conducting a <em>data analysis</em>. While a study includes developing and executing a plan for collecting data, a data analysis presumes the data have already been collected. More specifically, a study includes the development of a hypothesis or question, the designing of the data collection process (or study protocol), the collection of the data, and the analysis and interpretation of the data. Because a data analysis presumes that the data have already been collected, it includes development and refinement of a question and the process of analyzing and interpreting the data. It is important to note that although a data analysis is often performed without conducting a study, it may also be performed as a component of a study.</p>
 </div>
-<div id="epicycle-of-analysis" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Epicycle of Analysis</h2>
+<div id="epicycle-of-analysis" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Epicycle of Analysis<a href="analytic-iteration.html#epicycle-of-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are 5 core activities of data analysis:</p>
 <ol style="list-style-type: decimal">
 <li><p>Stating and refining the question</p></li>
@@ -207,36 +210,36 @@
 </ol>
 <p>Iterating through this 3-step process is what we call the “epicycle of data analysis.” As you go through every stage of an analysis, you will need to go through the epicycle to continuously refine your question, your exploratory data analysis, your formal models, your interpretation, and your communication.</p>
 <p>The repeated cycling through each of these five core activities that is done to complete a data analysis forms the larger circle of data analysis (See Figure). In this chapter we go into detail about what this 3-step epicyclic process is and give examples of how you can apply it to your data analysis.</p>
-<div class="figure">
-<img src="images/table-epicycles.png" alt="" />
-<p class="caption">Epicycles of Analysis</p>
+<div class="float">
+<img src="images/table-epicycles.png" alt="Epicycles of Analysis" />
+<div class="figcaption">Epicycles of Analysis</div>
 </div>
 </div>
-<div id="setting-expectations" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Setting Expectations</h2>
+<div id="setting-expectations" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Setting Expectations<a href="analytic-iteration.html#setting-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Developing expectations is the process of deliberately thinking about what you expect before you do anything, such as inspect your data, perform a procedure, or enter a command. For experienced data analysts, in some circumstances, developing expectations may be an automatic, almost subconscious process, but it’s an important activity to cultivate and be deliberate about.</p>
 <p>For example, you may be going out to dinner with friends at a cash-only establishment and need to stop by the ATM to withdraw money before meeting up. To make a decision about the amount of money you’re going to withdraw, you have to have developed some expectation of the cost of dinner. This may be an automatic expectation because you dine at this establishment regularly so you know what the typical cost of a meal is there, which would be an example of <em>a priori</em> knowledge. Another example of <em>a priori</em> knowledge would be knowing what a typical meal costs at a restaurant in your city, or knowing what a meal at the most expensive restaurants in your city costs. Using that information, you could perhaps place an upper and lower bound on how much the meal will cost.</p>
 <p>You may have also sought out external information to develop your expectations, which could include asking your friends who will be joining you or who have eaten at the restaurant before and/or Googling the restaurant to find general cost information online or a menu with prices. This same process, in which you use any a priori information you have and/or external sources to determine what you expect when you inspect your data or execute an analysis procedure, applies to each core activity of the data analysis process.</p>
 </div>
-<div id="collecting-information" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Collecting Information</h2>
+<div id="collecting-information" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Collecting Information<a href="analytic-iteration.html#collecting-information" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This step entails collecting information about your question or your data. For your question, you collect information by performing a literature search or asking experts in order to ensure that your question is a good one. In the next chapter, we will discuss characteristics of a good question. For your data, after you have some expectations about what the result will be when you inspect your data or perform the analysis procedure, you then perform the operation. The results of that operation are the data you need to collect, and then you determine if the data you collected matches your expectations. To extend the restaurant metaphor, when you go to the restaurant, getting the check is collecting the data.</p>
 </div>
-<div id="comparing-expectations-to-data" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Comparing Expectations to Data</h2>
+<div id="comparing-expectations-to-data" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Comparing Expectations to Data<a href="analytic-iteration.html#comparing-expectations-to-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that you have data in hand (the check at the restaurant), the next step is to compare your expectations to the data. There are two possible outcomes: either your expectations of the cost match the amount on the check, or they do not. If your expectations and the data match, terrific, you can move onto the next activity. If, on the other hand, your expectations were a cost of 30 dollars, but the check was 40 dollars, your expectations and the data do not match. There are two possible explanations for the discordance: first, your expectations were wrong and need to be revised, or second, the check was wrong and contains an error. You review the check and find that you were charged for two desserts instead of the one that you had, and conclude that there is an error in the data, so ask for the check to be corrected.</p>
 <p>One key indicator of how well your data analysis is going is how easy or difficult it is to match the data you collected to your original expectations. You want to setup your expectations and your data so that matching the two up is easy. In the restaurant example, your expectation was $30 and the data said the meal cost $40, so it’s easy to see that (a) your expectation was off by $10 and that (b) the meal was more expensive than you thought. When you come back to this place, you might bring an extra $10. If our original expectation was that the meal would be between $0 and $1,000, then it’s true that our data fall into that range, but it’s not clear how much more we’ve learned. For example, would you change your behavior the next time you came back? The expectation of a $30 meal is sometimes referred to as a sharp hypothesis because it states something very specific that can be verified with the data.</p>
 </div>
-<div id="applying-the-epicycle-of-analysis-process" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Applying the Epicycle of Analysis Process</h2>
+<div id="applying-the-epicycle-of-analysis-process" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Applying the Epicycle of Analysis Process<a href="analytic-iteration.html#applying-the-epicycle-of-analysis-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before we discuss a couple of examples, let’s review the three steps to use for each core data analysis activity. These are :</p>
 <ol style="list-style-type: decimal">
 <li><p>Setting expectations,</p></li>
 <li><p>Collecting information (data), comparing the data to your expectations, and if the expectations don’t match,</p></li>
 <li><p>Revising your expectations or fixing the data so that your expectations and the data match.</p></li>
 </ol>
-<div id="example-asthma-prevalence-in-the-u.s." class="section level3" number="1.6.1">
-<h3><span class="header-section-number">1.6.1</span> Example: Asthma prevalence in the U.S.</h3>
+<div id="example-asthma-prevalence-in-the-u.s." class="section level3 hasAnchor" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Example: Asthma prevalence in the U.S.<a href="analytic-iteration.html#example-asthma-prevalence-in-the-u.s." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s apply the “data analysis epicycle” to a very basic example. Let’s say your initial question is to determine the prevalence of asthma among adults, because your company wants to understand how big the market might be for a new asthma drug. You have a general question that has been identified by your boss, but need to: (1) sharpen the question, (2) explore the data, (3) build a statistical model, (4) interpret the results, and (5) communicate the results. We’ll apply the “epicycle” to each of these five core activities.</p>
 <p>For the first activity, refining the question, you would first develop your expectations of the question, then collect information about the question and determine if the information you collect matches your expectations, and if not, you would revise the question. Your expectations are that the answer to this question is unknown and that the question is answerable. A literature and internet search, however, reveal that this question has been answered (and is continually answered by the Centers for Disease Control (CDC)), so you reconsider the question since you can simply go to the CDC website to get recent asthma prevalence data.</p>
 <p>You inform your boss and initiate a conversation that reveals that any new drug that was developed would target those whose asthma was not controlled with currently available medication, so you identify a better question, which is “how many people in the United States have asthma that is not currently controlled, and what are the demographic predictors of uncontrolled asthma?” You repeat the process of collecting information to determine if your question is answerable and is a good one, and continue this process until you are satisfied that you have refined your question so that you have a good question that can be answered with available data.</p>
@@ -328,7 +331,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
